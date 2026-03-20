@@ -769,8 +769,19 @@ const numObserver=new IntersectionObserver((entries)=>{
 },{threshold:.5});
 statNums.forEach(el=>numObserver.observe(el));
 
-// Survey form submission
+// Survey form submission + visit tracking
 const API_BASE='https://xxxfocusoffice.manus.space';
+
+// Track page visit on load
+(function trackVisit(){
+  try{
+    fetch(API_BASE+'/api/trpc/survey.trackVisit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({json:{userAgent:navigator.userAgent,referrer:document.referrer||''}})
+    }).catch(()=>{});
+  }catch(e){}
+})();
 
 async function submitSurvey(){
   const textarea=document.getElementById('surveyResponse');
@@ -797,7 +808,7 @@ async function submitSurvey(){
       body:JSON.stringify({json:{response:response,userAgent:navigator.userAgent}})
     });
 
-    if(!res.ok) throw new Error('Network error');
+    if(!res.ok) throw new Error('Network error '+res.status);
 
     const data=await res.json();
     if(data.result?.data?.json?.success){
@@ -807,6 +818,7 @@ async function submitSurvey(){
       throw new Error('Server error');
     }
   }catch(err){
+    console.error('Survey submit error:',err);
     errorEl.classList.add('show');
     btn.classList.remove('loading');
     btn.disabled=false;
