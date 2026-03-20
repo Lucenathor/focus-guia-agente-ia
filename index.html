@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tu Competencia Ya Usa Agentes IA — Focus Consulting Group</title>
-<meta name="description" content="Descubre qué están haciendo las empresas que más crecen con Inteligencia Artificial. Directo exclusivo 25 de Marzo.">
+<meta name="description" content="Descubre cómo empresas de tu sector están usando agentes IA para espiar a la competencia, viralizar contenido y cerrar ventas 24/7. Directo exclusivo 25 de Marzo.">
+<meta property="og:title" content="Tu Competencia Ya Tiene Empleados que No Duermen">
+<meta property="og:description" content="Agentes IA que trabajan 24/7 para tu negocio. Directo exclusivo 25 de Marzo a las 19:00h.">
+<meta property="og:image" content="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288181369/UDVtIRJwcliKGSZh.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -14,6 +17,7 @@
   --gold:#c9a84c;--gold-light:#e2c97e;--gold-dim:rgba(201,168,76,.15);
   --white:#f8f6f0;--gray:#94a3b8;--gray-light:#cbd5e1;
   --red:#ef4444;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316;
+  --cyan:#06b6d4;--pink:#ec4899;--teal:#14b8a6;
   --font-display:'Playfair Display',Georgia,serif;
   --font-body:'Inter',system-ui,sans-serif;
 }
@@ -38,137 +42,183 @@ body::before{content:'';position:fixed;inset:0;background:
 .container{max-width:1100px;margin:0 auto;padding:0 24px}
 section{position:relative;z-index:1;padding:100px 0}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;
-  background:rgba(10,15,30,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.1);
+/* NAV - Logo grande y prominente */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 0;
+  background:rgba(10,15,30,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.15);
   transition:all .3s}
 nav .container{display:flex;align-items:center;justify-content:space-between}
-.nav-logo{height:36px;opacity:.9;transition:opacity .3s}
-.nav-logo:hover{opacity:1}
-.nav-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;
-  border:1px solid var(--gold);border-radius:100px;color:var(--gold);font-size:.8rem;
-  font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-  transition:all .3s}
-.nav-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--red);
-  animation:pulse-dot 2s infinite}
-@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.3}}
+.nav-logo-wrap{display:flex;align-items:center;gap:12px}
+.nav-logo{height:48px;opacity:1;transition:opacity .3s;filter:drop-shadow(0 0 8px rgba(201,168,76,.2))}
+.nav-logo:hover{opacity:.9}
+.nav-live{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;
+  background:linear-gradient(135deg,rgba(239,68,68,.15),rgba(239,68,68,.05));
+  border:1px solid rgba(239,68,68,.4);border-radius:100px;color:#fff;font-size:.8rem;
+  font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  transition:all .3s;text-decoration:none;cursor:default}
+.nav-live::before{content:'';width:10px;height:10px;border-radius:50%;background:var(--red);
+  animation:pulse-dot 1.5s infinite;box-shadow:0 0 8px var(--red)}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
 
+/* HERO - Hook que conecta con el dolor */
 .hero{min-height:100vh;display:flex;align-items:center;padding-top:100px;text-align:center}
-.hero-pre{display:inline-block;padding:6px 20px;border:1px solid rgba(201,168,76,.3);
+.hero-pre{display:inline-block;padding:8px 24px;border:1px solid rgba(201,168,76,.3);
   border-radius:100px;font-size:.75rem;font-weight:600;letter-spacing:.15em;
   text-transform:uppercase;color:var(--gold);margin-bottom:32px;
   background:rgba(201,168,76,.06)}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4.5rem);
-  font-weight:900;line-height:1.1;margin-bottom:24px;color:var(--white)}
-.hero h1 em{font-style:italic;color:var(--gold);display:block}
-.hero-sub{font-size:clamp(1rem,2vw,1.25rem);color:var(--gray-light);max-width:650px;
-  margin:0 auto 48px;line-height:1.8}
+  font-weight:900;line-height:1.08;margin-bottom:28px;color:var(--white)}
+.hero h1 em{font-style:italic;color:var(--gold);display:block;margin-top:4px}
+.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:var(--gray-light);max-width:680px;
+  margin:0 auto 20px;line-height:1.8}
 .hero-sub strong{color:var(--white);font-weight:600}
+.hero-urgency{font-size:1.1rem;color:var(--red);font-weight:700;margin-bottom:48px;
+  animation:urgency-pulse 3s infinite}
+@keyframes urgency-pulse{0%,100%{opacity:1}50%{opacity:.6}}
 
-.stats-row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:48px}
-.stat{text-align:center}
-.stat-num{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:48px}
+.stat{text-align:center;padding:20px;background:var(--navy-mid);border-radius:12px;
+  border:1px solid rgba(255,255,255,.05)}
+.stat-num{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.8rem);
   font-weight:900;color:var(--gold);line-height:1}
-.stat-label{font-size:.75rem;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
+.stat-label{font-size:.7rem;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-top:6px}
 
-.disruption{background:linear-gradient(135deg,rgba(239,68,68,.08),rgba(201,168,76,.08));
-  border:1px solid rgba(239,68,68,.2);border-radius:16px;padding:48px;text-align:center}
-.disruption-icon{font-size:3rem;margin-bottom:16px}
-.disruption h2{font-family:var(--font-display);font-size:clamp(1.6rem,3.5vw,2.4rem);
-  font-weight:700;margin-bottom:16px;color:var(--white)}
+/* DISRUPTION */
+.disruption{background:linear-gradient(135deg,rgba(239,68,68,.08),rgba(201,168,76,.06));
+  border:1px solid rgba(239,68,68,.2);border-radius:20px;padding:56px 48px;text-align:center;
+  position:relative;overflow:hidden}
+.disruption::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(circle at center,rgba(239,68,68,.03),transparent 60%);
+  animation:disruption-glow 8s infinite}
+@keyframes disruption-glow{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.disruption h2{font-family:var(--font-display);font-size:clamp(1.6rem,3.5vw,2.6rem);
+  font-weight:700;margin-bottom:20px;color:var(--white);position:relative}
 .disruption h2 span{color:var(--red)}
-.disruption p{color:var(--gray-light);max-width:700px;margin:0 auto;font-size:1.05rem;line-height:1.8}
+.disruption p{color:var(--gray-light);max-width:720px;margin:0 auto;font-size:1.05rem;line-height:1.8;position:relative}
 .disruption p strong{color:var(--white)}
 
+/* POWER CARDS */
 .powers-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px}
 .power-card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);
   border-radius:16px;padding:36px;transition:all .4s;position:relative;overflow:hidden}
 .power-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
   background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity .4s}
-.power-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,.2)}
+.power-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.25);
+  box-shadow:0 20px 40px rgba(0,0,0,.3)}
 .power-card:hover::before{opacity:1}
 .power-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;
   justify-content:center;font-size:1.5rem;margin-bottom:20px}
-.power-card h3{font-family:var(--font-display);font-size:1.25rem;font-weight:700;
+.power-card h3{font-family:var(--font-display);font-size:1.2rem;font-weight:700;
   margin-bottom:10px;color:var(--white)}
-.power-card p{color:var(--gray);font-size:.95rem;line-height:1.7}
-.power-tag{display:inline-block;padding:3px 10px;border-radius:100px;font-size:.7rem;
-  font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-top:16px}
+.power-card p{color:var(--gray);font-size:.92rem;line-height:1.7}
+.power-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.power-tag{display:inline-block;padding:3px 10px;border-radius:100px;font-size:.68rem;
+  font-weight:600;letter-spacing:.05em;text-transform:uppercase}
 
+/* DATA CARDS */
 .data-highlight{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:48px}
 .data-card{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));
-  border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px;text-align:center}
+  border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:36px 28px;text-align:center;
+  transition:all .4s}
+.data-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,.15)}
 .data-card .big-num{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,3.5rem);
-  font-weight:900;line-height:1;margin-bottom:8px}
+  font-weight:900;line-height:1;margin-bottom:10px}
 .data-card .big-label{font-size:.85rem;color:var(--gray);line-height:1.5}
 .data-card .big-label strong{color:var(--white)}
 
-.comparison{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:start;margin-top:48px}
+/* COMPARISON */
+.comparison{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:stretch;margin-top:48px}
 .comp-col{background:var(--navy-mid);border-radius:16px;padding:36px;
   border:1px solid rgba(255,255,255,.06)}
-.comp-col.old{border-color:rgba(239,68,68,.15)}
-.comp-col.new{border-color:rgba(201,168,76,.2)}
-.comp-title{font-family:var(--font-display);font-size:1.3rem;font-weight:700;
+.comp-col.old{border-color:rgba(239,68,68,.2);background:linear-gradient(135deg,var(--navy-mid),rgba(239,68,68,.03))}
+.comp-col.new{border-color:rgba(201,168,76,.2);background:linear-gradient(135deg,var(--navy-mid),rgba(201,168,76,.03))}
+.comp-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;
   margin-bottom:20px;display:flex;align-items:center;gap:10px}
 .comp-vs{font-family:var(--font-display);font-size:1.5rem;font-weight:900;
   color:var(--gold);align-self:center;text-align:center}
 .comp-item{display:flex;align-items:flex-start;gap:10px;padding:10px 0;
-  border-bottom:1px solid rgba(255,255,255,.04);font-size:.9rem;color:var(--gray-light)}
+  border-bottom:1px solid rgba(255,255,255,.04);font-size:.88rem;color:var(--gray-light)}
 .comp-item:last-child{border:none}
 .comp-x{color:var(--red);font-weight:700;font-size:1.1rem;flex-shrink:0}
 .comp-check{color:var(--green);font-weight:700;font-size:1.1rem;flex-shrink:0}
 
-.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-top:48px}
+/* TEAM GRID - 8 agentes */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
 .agent-card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);
-  border-radius:16px;padding:28px 24px;text-align:center;transition:all .4s;position:relative}
-.agent-card:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.3)}
-.agent-emoji{font-size:2.8rem;margin-bottom:12px;display:block}
-.agent-name{font-family:var(--font-display);font-size:1.1rem;font-weight:700;
+  border-radius:16px;padding:28px 20px;text-align:center;transition:all .4s;position:relative;overflow:hidden}
+.agent-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  transition:opacity .4s;opacity:0}
+.agent-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.agent-card:hover::after{opacity:1}
+.agent-emoji{font-size:2.6rem;margin-bottom:10px;display:block}
+.agent-name{font-family:var(--font-display);font-size:1.05rem;font-weight:700;
   color:var(--white);margin-bottom:4px}
-.agent-role{font-size:.8rem;color:var(--gold);font-weight:600;text-transform:uppercase;
-  letter-spacing:.08em;margin-bottom:12px}
-.agent-desc{font-size:.85rem;color:var(--gray);line-height:1.6}
+.agent-role{font-size:.72rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;margin-bottom:10px}
+.agent-desc{font-size:.82rem;color:var(--gray);line-height:1.6}
+.agent-new{position:absolute;top:12px;right:12px;padding:2px 8px;border-radius:100px;
+  font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+  background:var(--gold);color:var(--navy)}
 
-.live-section{text-align:center;padding:120px 0}
-.live-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;
+/* SCENARIOS */
+.quote-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:48px}
+.quote-card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);
+  border-radius:16px;padding:36px;position:relative;transition:all .4s}
+.quote-card:hover{border-color:rgba(201,168,76,.15)}
+.quote-card::before{content:'\201C';position:absolute;top:16px;left:24px;
+  font-family:var(--font-display);font-size:4rem;color:var(--gold);opacity:.2;line-height:1}
+.quote-text{font-size:.95rem;color:var(--gray-light);line-height:1.8;font-style:italic;
+  margin-bottom:16px;padding-top:8px}
+.quote-text strong{color:var(--white);font-style:normal}
+.quote-author{font-size:.85rem;color:var(--gold);font-weight:600}
+
+/* LIVE SECTION */
+.live-section{text-align:center;padding:120px 0;position:relative}
+.live-section::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(239,68,68,.04),transparent);
+  pointer-events:none}
+.live-badge{display:inline-flex;align-items:center;gap:8px;padding:10px 24px;
   background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:100px;
   color:var(--red);font-size:.8rem;font-weight:700;letter-spacing:.1em;
   text-transform:uppercase;margin-bottom:32px}
 .live-badge::before{content:'';width:10px;height:10px;border-radius:50%;
-  background:var(--red);animation:pulse-dot 1.5s infinite}
+  background:var(--red);animation:pulse-dot 1.5s infinite;box-shadow:0 0 8px var(--red)}
 .live-section h2{font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);
-  font-weight:900;line-height:1.15;margin-bottom:24px}
+  font-weight:900;line-height:1.15;margin-bottom:24px;position:relative}
 .live-section h2 em{color:var(--gold);font-style:italic}
 .live-details{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin:32px 0 48px}
 .live-detail{display:flex;align-items:center;gap:8px;font-size:1rem;color:var(--gray-light)}
 .live-detail strong{color:var(--white)}
 
 .countdown{display:flex;justify-content:center;gap:16px;margin-bottom:48px}
-.cd-block{background:var(--navy-mid);border:1px solid rgba(201,168,76,.15);
-  border-radius:12px;padding:16px 20px;min-width:80px;text-align:center}
+.cd-block{background:var(--navy-mid);border:1px solid rgba(201,168,76,.2);
+  border-radius:12px;padding:16px 20px;min-width:80px;text-align:center;
+  transition:all .3s}
+.cd-block:hover{border-color:rgba(201,168,76,.4);transform:translateY(-2px)}
 .cd-num{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.5rem);
   font-weight:900;color:var(--gold);line-height:1}
 .cd-label{font-size:.65rem;color:var(--gray);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
 
-.quote-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px}
-.quote-card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);
-  border-radius:16px;padding:32px;position:relative}
-.quote-card::before{content:'\201C';position:absolute;top:16px;left:24px;
-  font-family:var(--font-display);font-size:4rem;color:var(--gold);opacity:.2;line-height:1}
-.quote-text{font-size:1rem;color:var(--gray-light);line-height:1.8;font-style:italic;
-  margin-bottom:16px;padding-top:8px}
-.quote-text strong{color:var(--white);font-style:normal}
-.quote-author{font-size:.85rem;color:var(--gold);font-weight:600}
+/* WHAT YOU'LL SEE - Agenda del directo */
+.agenda-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:48px}
+.agenda-item{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);
+  border-radius:16px;padding:28px;position:relative;overflow:hidden;transition:all .4s}
+.agenda-item:hover{border-color:rgba(201,168,76,.2);transform:translateY(-4px)}
+.agenda-num{position:absolute;top:16px;right:16px;font-family:var(--font-display);
+  font-size:3rem;font-weight:900;color:rgba(201,168,76,.08);line-height:1}
+.agenda-item h4{font-family:var(--font-display);font-size:1.05rem;font-weight:700;
+  color:var(--white);margin-bottom:8px}
+.agenda-item p{font-size:.85rem;color:var(--gray);line-height:1.6}
 
 .section-header{text-align:center;margin-bottom:48px}
 .section-pre{display:inline-block;padding:4px 16px;border-radius:100px;font-size:.7rem;
   font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px}
 .section-header h2{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);
   font-weight:900;line-height:1.2;margin-bottom:16px}
-.section-header p{color:var(--gray);max-width:600px;margin:0 auto;font-size:1.05rem}
+.section-header p{color:var(--gray);max-width:650px;margin:0 auto;font-size:1.05rem}
 
-footer{border-top:1px solid rgba(255,255,255,.05);padding:48px 0;text-align:center}
+footer{border-top:1px solid rgba(201,168,76,.1);padding:48px 0;text-align:center}
 footer p{color:var(--gray);font-size:.85rem}
-footer .logo-footer{height:28px;opacity:.5;margin-bottom:16px}
+footer .logo-footer{height:36px;opacity:.7;margin-bottom:16px;filter:drop-shadow(0 0 4px rgba(201,168,76,.1))}
 
 .glow{text-shadow:0 0 40px rgba(201,168,76,.3)}
 
@@ -181,23 +231,36 @@ footer .logo-footer{height:28px;opacity:.5;margin-bottom:16px}
   100%{opacity:0;transform:translateY(-100px)}
 }
 
+/* SOCIAL PROOF TICKER */
+.ticker-wrap{overflow:hidden;padding:16px 0;border-top:1px solid rgba(255,255,255,.04);
+  border-bottom:1px solid rgba(255,255,255,.04);margin:0}
+.ticker{display:flex;gap:48px;animation:ticker-scroll 30s linear infinite;white-space:nowrap}
+.ticker span{font-size:.8rem;color:var(--gray);font-weight:500;letter-spacing:.05em;text-transform:uppercase}
+.ticker span strong{color:var(--gold)}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
 @media(max-width:768px){
   section{padding:72px 0}
   .comparison{grid-template-columns:1fr;gap:16px}
   .comp-vs{padding:8px 0}
-  .stats-row{gap:24px}
+  .stats-row{grid-template-columns:repeat(2,1fr);gap:12px}
+  .team-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .live-details{gap:16px}
   .countdown{gap:10px}
   .cd-block{min-width:65px;padding:12px 14px}
   nav .container{padding:0 16px}
-  .disruption{padding:32px 20px}
+  .disruption{padding:36px 24px}
+  .nav-logo{height:36px}
+  .nav-live{padding:8px 16px;font-size:.7rem}
+  .agenda-grid{grid-template-columns:1fr}
 }
 @media(max-width:480px){
   .hero{padding-top:80px}
   .hero h1{font-size:2rem}
   .powers-grid{grid-template-columns:1fr}
-  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:1fr}
   .quote-grid{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -205,83 +268,144 @@ footer .logo-footer{height:28px;opacity:.5;margin-bottom:16px}
 
 <nav>
   <div class="container">
-    <img src="https://manus.storage.googleapis.com/ee4b0790-5592-4bdf-b62b-a864bbf496c5/logobueno.webp" alt="Focus Consulting Group" class="nav-logo">
-    <span class="nav-badge">Directo 25 Marzo — 19:00h</span>
+    <div class="nav-logo-wrap">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288181369/UDVtIRJwcliKGSZh.webp" alt="Focus Consulting Group" class="nav-logo">
+    </div>
+    <span class="nav-live">Directo 25 Marzo &mdash; 19:00h</span>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO - Hook que conecta con el dolor inmediato -->
 <section class="hero">
   <div class="container">
     <div class="reveal">
-      <div class="hero-pre">Informe Exclusivo — Focus Consulting Group</div>
-      <h1>Tu Competencia Ya Tiene<em>Empleados que No Duermen</em></h1>
-      <p class="hero-sub">Mientras tu equipo trabaja 8 horas, hay empresas de tu sector con <strong>agentes de IA que trabajan 24 horas</strong>, analizan a tu competencia, crean contenido viral y cierran ventas. <strong>Y tu no lo sabias.</strong></p>
+      <div class="hero-pre">&#9679; Informe Exclusivo &mdash; Focus Consulting Group</div>
+      <h1>Pierdes Clientes Cada D&iacute;a<em>Mientras Tu Competencia Duerme Tranquila</em></h1>
+      <p class="hero-sub">Hay empresas de tu sector con <strong>empleados IA que trabajan a las 3 de la ma&ntilde;ana</strong>: contestan llamadas, responden emails, espían anuncios, crean contenido viral y cierran ventas. <strong>Todo sin que su due&ntilde;o levante un dedo.</strong></p>
+      <p class="hero-urgency">&#9888;&#65039; El 72% de las empresas ya est&aacute;n adoptando esto en 2026. &iquest;Y t&uacute;?</p>
     </div>
     <div class="stats-row reveal">
-      <div class="stat"><div class="stat-num">72%</div><div class="stat-label">Empresas adoptando IA en 2026</div></div>
-      <div class="stat"><div class="stat-num">14x</div><div class="stat-label">Mas rapido que un equipo humano</div></div>
-      <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Sin descansos ni vacaciones</div></div>
-      <div class="stat"><div class="stat-num">85%</div><div class="stat-label">Reduccion de costes operativos</div></div>
+      <div class="stat"><div class="stat-num">8</div><div class="stat-label">Agentes IA Especializados</div></div>
+      <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Trabajando Sin Parar</div></div>
+      <div class="stat"><div class="stat-num">14x</div><div class="stat-label">M&aacute;s R&aacute;pido que un Humano</div></div>
+      <div class="stat"><div class="stat-num">0</div><div class="stat-label">Leads Perdidos</div></div>
     </div>
   </div>
 </section>
 
-<!-- DISRUPTION -->
+<!-- SOCIAL PROOF TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>&#128200; <strong>+340%</strong> aumento en captaci&oacute;n de leads</span>
+    <span>&#128373;&#65039; <strong>47 anuncios</strong> de competencia analizados en 10 min</span>
+    <span>&#128241; <strong>0 llamadas</strong> perdidas con asistente IA 24/7</span>
+    <span>&#128231; <strong>Emails</strong> respondidos autom&aacute;ticamente en segundos</span>
+    <span>&#127909; <strong>Virales</strong> de tu sector encontrados cada d&iacute;a</span>
+    <span>&#128176; <strong>Embudos</strong> de venta creados en minutos</span>
+    <span>&#129421; <strong>Reportes</strong> ejecutivos generados autom&aacute;ticamente</span>
+    <span>&#128203; <strong>Facturas</strong> creadas y enviadas sin intervenci&oacute;n</span>
+    <!-- Duplicado para scroll infinito -->
+    <span>&#128200; <strong>+340%</strong> aumento en captaci&oacute;n de leads</span>
+    <span>&#128373;&#65039; <strong>47 anuncios</strong> de competencia analizados en 10 min</span>
+    <span>&#128241; <strong>0 llamadas</strong> perdidas con asistente IA 24/7</span>
+    <span>&#128231; <strong>Emails</strong> respondidos autom&aacute;ticamente en segundos</span>
+    <span>&#127909; <strong>Virales</strong> de tu sector encontrados cada d&iacute;a</span>
+    <span>&#128176; <strong>Embudos</strong> de venta creados en minutos</span>
+    <span>&#129421; <strong>Reportes</strong> ejecutivos generados autom&aacute;ticamente</span>
+    <span>&#128203; <strong>Facturas</strong> creadas y enviadas sin intervenci&oacute;n</span>
+  </div>
+</div>
+
+<!-- DISRUPTION - Urgencia y FOMO -->
 <section>
   <div class="container">
     <div class="disruption reveal-scale">
-      <div class="disruption-icon">&#9888;&#65039;</div>
-      <h2>Esto No Es el Futuro.<br><span>Esto Esta Pasando Ahora.</span></h2>
-      <p>Empresas de tu mismo sector ya estan usando agentes de inteligencia artificial para <strong>espiar los anuncios de su competencia</strong>, encontrar los contenidos mas virales, crear embudos de venta automaticos y gestionar leads sin intervencion humana. <strong>La pregunta no es si deberias hacerlo. La pregunta es cuanto tiempo mas puedes permitirte no hacerlo.</strong></p>
+      <h2>Cada D&iacute;a Sin Esto,<br><span>Tu Competencia Te Saca M&aacute;s Ventaja</span></h2>
+      <p>No es ciencia ficci&oacute;n. <strong>Ahora mismo</strong>, empresas de tu sector tienen agentes IA que espían los anuncios de su competencia, encuentran los contenidos m&aacute;s virales, crean embudos de venta, contestan llamadas a las 3 de la ma&ntilde;ana, responden emails en segundos y generan facturas autom&aacute;ticamente. <strong>La pregunta no es si deber&iacute;as hacerlo. La pregunta es cu&aacute;ntas ventas has perdido ya por no tenerlo.</strong></p>
     </div>
   </div>
 </section>
 
-<!-- WHAT AGENTS CAN DO -->
+<!-- WHAT AGENTS CAN DO - 8 capacidades -->
 <section>
   <div class="container">
     <div class="section-header reveal">
       <div class="section-pre" style="color:var(--gold);background:var(--gold-dim)">Capacidades Reales</div>
-      <h2>Lo Que un Agente IA Hace<br>Por Tu Negocio</h2>
-      <p>No es teoria. Esto es lo que hacen ahora mismo agentes reales para negocios reales.</p>
+      <h2>8 Empleados IA. 8 Superpoderes.<br>Cero Excusas.</h2>
+      <p>Esto no es teor&iacute;a. Es lo que hacen ahora mismo agentes reales para negocios reales.</p>
     </div>
     <div class="powers-grid">
       <div class="power-card reveal-left">
         <div class="power-icon" style="background:rgba(239,68,68,.1)">&#128373;&#65039;</div>
         <h3>Espiar Anuncios de tu Competencia</h3>
-        <p>Entra en Meta Ads, busca todos los anuncios activos de tus competidores, analiza sus copys, creativos y estrategias. Te entrega un informe con lo que estan haciendo y lo que tu deberias hacer diferente.</p>
-        <span class="power-tag" style="color:var(--red);background:rgba(239,68,68,.1)">Meta Ads &middot; Analisis IA</span>
+        <p>Entra en Meta Ads, busca todos los anuncios activos de tus competidores, analiza copys, creativos y estrategias. Te dice exactamente qu&eacute; est&aacute;n haciendo y qu&eacute; deber&iacute;as hacer t&uacute; diferente.</p>
+        <div class="power-tags">
+          <span class="power-tag" style="color:var(--red);background:rgba(239,68,68,.1)">Meta Ads</span>
+          <span class="power-tag" style="color:var(--red);background:rgba(239,68,68,.1)">An&aacute;lisis IA</span>
+        </div>
       </div>
       <div class="power-card reveal">
         <div class="power-icon" style="background:rgba(168,85,247,.1)">&#128200;</div>
         <h3>Encontrar Virales de tu Sector</h3>
-        <p>Busca en TikTok los tutoriales y videos con mas visualizaciones de tu nicho. Analiza patrones: que hooks funcionan, que duracion es ideal, que formato genera mas engagement. Te dice exactamente que contenido crear.</p>
-        <span class="power-tag" style="color:var(--purple);background:rgba(168,85,247,.1)">TikTok &middot; Viralizacion</span>
+        <p>Busca en TikTok los tutoriales y v&iacute;deos con m&aacute;s visualizaciones de tu nicho. Analiza patrones: qu&eacute; hooks funcionan, qu&eacute; duraci&oacute;n es ideal, qu&eacute; formato genera m&aacute;s engagement.</p>
+        <div class="power-tags">
+          <span class="power-tag" style="color:var(--purple);background:rgba(168,85,247,.1)">TikTok</span>
+          <span class="power-tag" style="color:var(--purple);background:rgba(168,85,247,.1)">Viralizaci&oacute;n</span>
+        </div>
       </div>
       <div class="power-card reveal-right">
         <div class="power-icon" style="background:rgba(59,130,246,.1)">&#127760;</div>
         <h3>Crear Embudos de Venta en Minutos</h3>
-        <p>Toma un template profesional, lo personaliza para tu sector, cambia textos, colores y CTAs, y te entrega un embudo de venta listo para captar leads. Lo que a un disenador le lleva dias, el agente lo hace en minutos.</p>
-        <span class="power-tag" style="color:var(--blue);background:rgba(59,130,246,.1)">Landing Pages &middot; Embudos</span>
+        <p>Toma un template profesional, lo personaliza para tu sector, cambia textos, colores y CTAs. Te entrega un embudo listo para captar leads. Lo que a un dise&ntilde;ador le lleva d&iacute;as, en minutos.</p>
+        <div class="power-tags">
+          <span class="power-tag" style="color:var(--blue);background:rgba(59,130,246,.1)">Landing Pages</span>
+          <span class="power-tag" style="color:var(--blue);background:rgba(59,130,246,.1)">Embudos</span>
+        </div>
+      </div>
+      <div class="power-card reveal-left">
+        <div class="power-icon" style="background:rgba(6,182,212,.1)">&#128222;</div>
+        <h3>Contestar Llamadas 24/7</h3>
+        <p>Un asistente IA que responde las llamadas de tu negocio a cualquier hora. Califica leads, agenda citas, responde preguntas frecuentes y nunca pierde una llamada. <strong>Ni a las 3 de la ma&ntilde;ana.</strong></p>
+        <div class="power-tags">
+          <span class="power-tag" style="color:var(--cyan);background:rgba(6,182,212,.1)">Llamadas</span>
+          <span class="power-tag" style="color:var(--cyan);background:rgba(6,182,212,.1)">24/7</span>
+        </div>
+      </div>
+      <div class="power-card reveal">
+        <div class="power-icon" style="background:rgba(236,72,153,.1)">&#128231;</div>
+        <h3>Organizar y Responder tus Emails</h3>
+        <p>Lee tu bandeja de entrada, clasifica por prioridad, redacta respuestas profesionales seg&uacute;n tus instrucciones y las env&iacute;a. T&uacute; solo revisas lo importante. <strong>Adiós a 2 horas diarias de email.</strong></p>
+        <div class="power-tags">
+          <span class="power-tag" style="color:var(--pink);background:rgba(236,72,153,.1)">Gmail</span>
+          <span class="power-tag" style="color:var(--pink);background:rgba(236,72,153,.1)">Automatizaci&oacute;n</span>
+        </div>
+      </div>
+      <div class="power-card reveal-right">
+        <div class="power-icon" style="background:rgba(20,184,166,.1)">&#128203;</div>
+        <h3>Crear y Enviar Facturas</h3>
+        <p>Genera facturas profesionales autom&aacute;ticamente con los datos de tus clientes, las env&iacute;a por email y lleva el control de pagos. <strong>Cero errores, cero olvidos.</strong></p>
+        <div class="power-tags">
+          <span class="power-tag" style="color:var(--teal);background:rgba(20,184,166,.1)">Facturaci&oacute;n</span>
+          <span class="power-tag" style="color:var(--teal);background:rgba(20,184,166,.1)">Autom&aacute;tico</span>
+        </div>
       </div>
       <div class="power-card reveal-left">
         <div class="power-icon" style="background:rgba(34,197,94,.1)">&#128202;</div>
-        <h3>Generar Reportes Ejecutivos</h3>
-        <p>Recopila datos de todas las fuentes, los cruza, los analiza y te genera un reporte ejecutivo completo con graficos, conclusiones y recomendaciones accionables. Listo para presentar a tu equipo o a tus clientes.</p>
-        <span class="power-tag" style="color:var(--green);background:rgba(34,197,94,.1)">Datos &middot; Reportes</span>
+        <h3>Reportes Ejecutivos con Datos Reales</h3>
+        <p>Recopila datos de todas las fuentes, los cruza, analiza y genera un reporte ejecutivo completo con gr&aacute;ficos y recomendaciones accionables. Listo para presentar.</p>
+        <div class="power-tags">
+          <span class="power-tag" style="color:var(--green);background:rgba(34,197,94,.1)">Datos</span>
+          <span class="power-tag" style="color:var(--green);background:rgba(34,197,94,.1)">Reportes</span>
+        </div>
       </div>
       <div class="power-card reveal">
-        <div class="power-icon" style="background:rgba(249,115,22,.1)">&#129302;</div>
-        <h3>Gestionar tu CRM Automaticamente</h3>
-        <p>Cada lead que entra por tu embudo se registra automaticamente en tu CRM, se le asigna un workflow de seguimiento, y el agente actualiza el pipeline de ventas. Cero trabajo manual, cero leads perdidos.</p>
-        <span class="power-tag" style="color:var(--orange);background:rgba(249,115,22,.1)">CRM &middot; Automatizacion</span>
-      </div>
-      <div class="power-card reveal-right">
         <div class="power-icon" style="background:var(--gold-dim)">&#128081;</div>
-        <h3>Orquestar Todo con una Sola Orden</h3>
-        <p>Le dices un sector y un director IA distribuye tareas a todos los agentes en paralelo. En 10 minutos tienes: anuncios de competencia, virales del sector, embudo creado y reporte completo.</p>
-        <span class="power-tag" style="color:var(--gold);background:var(--gold-dim)">Director IA &middot; Orquestacion</span>
+        <h3>Un Director que Orquesta Todo</h3>
+        <p>Le dices un sector y un director IA distribuye tareas a los 8 agentes en paralelo. En 10 minutos tienes: anuncios de competencia, virales, embudo creado, emails gestionados y reporte completo.</p>
+        <div class="power-tags">
+          <span class="power-tag" style="color:var(--gold);background:var(--gold-dim)">Director IA</span>
+          <span class="power-tag" style="color:var(--gold);background:var(--gold-dim)">Orquestaci&oacute;n</span>
+        </div>
       </div>
     </div>
   </div>
@@ -291,25 +415,25 @@ footer .logo-footer{height:28px;opacity:.5;margin-bottom:16px}
 <section>
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-pre" style="color:var(--green);background:rgba(34,197,94,.1)">Datos Reales</div>
-      <h2>Los Numeros No Mienten</h2>
+      <div class="section-pre" style="color:var(--green);background:rgba(34,197,94,.1)">Los N&uacute;meros</div>
+      <h2>Datos que Tu Competencia<br>No Quiere que Veas</h2>
     </div>
     <div class="data-highlight">
       <div class="data-card reveal-left">
-        <div class="big-num" style="color:var(--red)">4-6</div>
-        <div class="big-label"><strong>empleados</strong> necesitas para hacer lo que hacen <strong>5 agentes IA</strong></div>
+        <div class="big-num" style="color:var(--gold)">7.800&euro;</div>
+        <div class="big-label">Lo que cuesta un equipo de <strong>4 empleados</strong> al mes haciendo lo mismo</div>
       </div>
       <div class="data-card reveal">
-        <div class="big-num" style="color:var(--gold)">10 min</div>
-        <div class="big-label">para un <strong>analisis completo de competencia</strong> que a un equipo le lleva <strong>2 semanas</strong></div>
+        <div class="big-num" style="color:var(--green)">10 min</div>
+        <div class="big-label">Para un <strong>an&aacute;lisis completo</strong> que a un equipo le lleva <strong>2 semanas</strong></div>
       </div>
       <div class="data-card reveal-right">
-        <div class="big-num" style="color:var(--green)">0</div>
-        <div class="big-label"><strong>errores humanos</strong>. Cero olvidos. Cero dias malos. <strong>Consistencia absoluta</strong></div>
+        <div class="big-num" style="color:var(--red)">0</div>
+        <div class="big-label"><strong>Llamadas perdidas</strong>. Cero leads olvidados. <strong>Cero excusas</strong></div>
       </div>
       <div class="data-card reveal">
         <div class="big-num" style="color:var(--purple)">&infin;</div>
-        <div class="big-label">El agente <strong>mejora con cada tarea</strong>. Cuanto mas lo usas, <strong>mas inteligente</strong> se vuelve</div>
+        <div class="big-label">El agente <strong>mejora con cada tarea</strong>. Cuanto m&aacute;s lo usas, <strong>m&aacute;s inteligente</strong></div>
       </div>
     </div>
   </div>
@@ -320,70 +444,101 @@ footer .logo-footer{height:28px;opacity:.5;margin-bottom:16px}
   <div class="container">
     <div class="section-header reveal">
       <div class="section-pre" style="color:var(--red);background:rgba(239,68,68,.1)">La Realidad</div>
-      <h2>Tu Negocio Hoy vs. Tu Negocio con Agentes IA</h2>
+      <h2>Tu Negocio Hoy vs. Tu Negocio<br>con un Equipo de Agentes IA</h2>
     </div>
     <div class="comparison reveal-scale">
       <div class="comp-col old">
         <div class="comp-title"><span style="color:var(--red)">&#10060;</span> Sin Agentes IA</div>
         <div class="comp-item"><span class="comp-x">&#10007;</span> Espiar a la competencia te lleva horas de trabajo manual</div>
-        <div class="comp-item"><span class="comp-x">&#10007;</span> No sabes que contenido viral funciona en tu sector</div>
-        <div class="comp-item"><span class="comp-x">&#10007;</span> Crear un embudo de venta te cuesta semanas y miles de euros</div>
-        <div class="comp-item"><span class="comp-x">&#10007;</span> Pierdes leads porque nadie les hace seguimiento a tiempo</div>
-        <div class="comp-item"><span class="comp-x">&#10007;</span> Tus reportes son manuales, incompletos y llegan tarde</div>
-        <div class="comp-item"><span class="comp-x">&#10007;</span> Tu equipo trabaja 8h y necesita vacaciones</div>
+        <div class="comp-item"><span class="comp-x">&#10007;</span> No sabes qu&eacute; contenido viral funciona en tu sector</div>
+        <div class="comp-item"><span class="comp-x">&#10007;</span> Crear un embudo te cuesta semanas y miles de euros</div>
+        <div class="comp-item"><span class="comp-x">&#10007;</span> Pierdes llamadas fuera de horario = pierdes clientes</div>
+        <div class="comp-item"><span class="comp-x">&#10007;</span> Pasas 2 horas al d&iacute;a respondiendo emails</div>
+        <div class="comp-item"><span class="comp-x">&#10007;</span> Las facturas se retrasan y pierdes cobros</div>
+        <div class="comp-item"><span class="comp-x">&#10007;</span> Tus reportes son manuales e incompletos</div>
       </div>
       <div class="comp-vs">VS</div>
       <div class="comp-col new">
-        <div class="comp-title"><span style="color:var(--green)">&#10022;</span> Con Agentes IA</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Un agente espia los anuncios de tu competencia cada dia automaticamente</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Sabes exactamente que tutoriales y virales funcionan en tu nicho</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Un agente te crea embudos personalizados en minutos</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Cada lead se registra y recibe seguimiento automatico al instante</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Reportes ejecutivos generados automaticamente con datos cruzados</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Tus agentes trabajan 24/7, 365 dias al ano, mejorando cada dia</div>
+        <div class="comp-title"><span style="color:var(--green)">&#10022;</span> Con 8 Agentes IA</div>
+        <div class="comp-item"><span class="comp-check">&#10003;</span> Un agente esp&iacute;a los anuncios de tu competencia cada d&iacute;a</div>
+        <div class="comp-item"><span class="comp-check">&#10003;</span> Sabes exactamente qu&eacute; tutoriales viralizan en tu nicho</div>
+        <div class="comp-item"><span class="comp-check">&#10003;</span> Un agente crea embudos personalizados en minutos</div>
+        <div class="comp-item"><span class="comp-check">&#10003;</span> Un asistente IA contesta TODAS las llamadas 24/7</div>
+        <div class="comp-item"><span class="comp-check">&#10003;</span> Tus emails se responden autom&aacute;ticamente en segundos</div>
+        <div class="comp-item"><span class="comp-check">&#10003;</span> Facturas creadas y enviadas sin intervenci&oacute;n humana</div>
+        <div class="comp-item"><span class="comp-check">&#10003;</span> Reportes ejecutivos generados con datos cruzados de todo</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE TEAM -->
+<!-- THE TEAM - 8 agentes -->
 <section>
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-pre" style="color:var(--gold);background:var(--gold-dim)">El Equipo</div>
-      <h2>5 Agentes. 5 Especialidades.<br>Un Solo Objetivo: Tu Crecimiento.</h2>
-      <p>Cada agente tiene su propia inteligencia, su memoria y sus herramientas. Juntos forman un equipo que no existe en ninguna otra consultoria.</p>
+      <div class="section-pre" style="color:var(--gold);background:var(--gold-dim)">Tu Equipo IA</div>
+      <h2>8 Agentes. 8 Especialidades.<br>Un Solo Objetivo: Tu Crecimiento.</h2>
+      <p>Cada agente tiene su propia inteligencia, su memoria y sus herramientas. Juntos forman un equipo que no existe en ninguna otra consultor&iacute;a.</p>
     </div>
     <div class="team-grid">
-      <div class="agent-card reveal">
+      <div class="agent-card reveal" style="--accent:var(--gold)">
         <span class="agent-emoji">&#128081;</span>
         <div class="agent-name">Claw</div>
-        <div class="agent-role">Director</div>
-        <div class="agent-desc">Orquesta a todo el equipo. Una orden y los 5 agentes se ponen a trabajar en paralelo.</div>
+        <div class="agent-role" style="color:var(--gold)">Director</div>
+        <div class="agent-desc">Orquesta a todo el equipo. Una orden y los 8 agentes se ponen a trabajar en paralelo.</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold)"></div>
       </div>
-      <div class="agent-card reveal">
+      <div class="agent-card reveal" style="--accent:var(--red)">
         <span class="agent-emoji">&#128373;&#65039;</span>
         <div class="agent-name">Ad Spy</div>
-        <div class="agent-role">Espionaje Publicitario</div>
-        <div class="agent-desc">Espia los anuncios de tu competencia en Meta Ads y te dice que estan haciendo.</div>
+        <div class="agent-role" style="color:var(--red)">Espionaje Publicitario</div>
+        <div class="agent-desc">Esp&iacute;a los anuncios de tu competencia en Meta Ads y analiza sus estrategias.</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red)"></div>
       </div>
-      <div class="agent-card reveal">
+      <div class="agent-card reveal" style="--accent:var(--purple)">
         <span class="agent-emoji">&#128200;</span>
         <div class="agent-name">TikTok Research</div>
-        <div class="agent-role">Viralizacion</div>
-        <div class="agent-desc">Encuentra los tutoriales mas virales de tu sector y te dice que contenido crear.</div>
+        <div class="agent-role" style="color:var(--purple)">Viralizaci&oacute;n</div>
+        <div class="agent-desc">Encuentra los tutoriales m&aacute;s virales de tu sector y te dice qu&eacute; contenido crear.</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--purple)"></div>
       </div>
-      <div class="agent-card reveal">
+      <div class="agent-card reveal" style="--accent:var(--blue)">
         <span class="agent-emoji">&#127760;</span>
         <div class="agent-name">Landing Creator</div>
-        <div class="agent-role">Embudos de Venta</div>
+        <div class="agent-role" style="color:var(--blue)">Embudos de Venta</div>
         <div class="agent-desc">Crea embudos de venta personalizados en minutos con templates profesionales.</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--blue)"></div>
       </div>
-      <div class="agent-card reveal">
+      <div class="agent-card reveal" style="--accent:var(--cyan)">
+        <span class="agent-emoji">&#128222;</span>
+        <div class="agent-name">Call Assistant</div>
+        <div class="agent-role" style="color:var(--cyan)">Asistente de Llamadas</div>
+        <div class="agent-desc">Contesta las llamadas de tu negocio 24/7. Califica leads y agenda citas.</div>
+        <span class="agent-new">Nuevo</span>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--cyan)"></div>
+      </div>
+      <div class="agent-card reveal" style="--accent:var(--pink)">
+        <span class="agent-emoji">&#128231;</span>
+        <div class="agent-name">Mail Manager</div>
+        <div class="agent-role" style="color:var(--pink)">Gestor de Email</div>
+        <div class="agent-desc">Organiza tu bandeja, responde emails seg&uacute;n tus instrucciones y prioriza lo importante.</div>
+        <span class="agent-new">Nuevo</span>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--pink)"></div>
+      </div>
+      <div class="agent-card reveal" style="--accent:var(--teal)">
+        <span class="agent-emoji">&#128203;</span>
+        <div class="agent-name">Invoice Pro</div>
+        <div class="agent-role" style="color:var(--teal)">Facturaci&oacute;n</div>
+        <div class="agent-desc">Crea facturas profesionales, las env&iacute;a y lleva el control de cobros autom&aacute;ticamente.</div>
+        <span class="agent-new">Nuevo</span>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--teal)"></div>
+      </div>
+      <div class="agent-card reveal" style="--accent:var(--green)">
         <span class="agent-emoji">&#129421;</span>
-        <div class="agent-name">Reporte</div>
-        <div class="agent-role">Analisis y Datos</div>
-        <div class="agent-desc">Recopila todo, lo cruza y genera reportes ejecutivos listos para presentar.</div>
+        <div class="agent-name">Gorila</div>
+        <div class="agent-role" style="color:var(--green)">An&aacute;lisis y Reportes</div>
+        <div class="agent-desc">Recopila datos de todos los agentes y genera reportes ejecutivos completos.</div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--green)"></div>
       </div>
     </div>
   </div>
@@ -394,20 +549,53 @@ footer .logo-footer{height:28px;opacity:.5;margin-bottom:16px}
   <div class="container">
     <div class="section-header reveal">
       <div class="section-pre" style="color:var(--purple);background:rgba(168,85,247,.1)">Imagina Esto</div>
-      <h2>Escenarios Reales</h2>
+      <h2>Escenarios que Est&aacute;n Pasando<br>Ahora Mismo</h2>
     </div>
     <div class="quote-grid">
       <div class="quote-card reveal-left">
-        <p class="quote-text">Es lunes por la manana. Abres tu panel y ves que tu agente <strong>ya ha analizado los 47 anuncios nuevos</strong> de tus 5 competidores principales. Tienes un informe con lo que funciona y lo que no. Tu competencia ni sabe que existes.</p>
-        <div class="quote-author">Clinica Estetica — Madrid</div>
+        <p class="quote-text">Son las 3 de la ma&ntilde;ana. Un cliente potencial llama a tu cl&iacute;nica. Tu asistente IA <strong>contesta, le explica los tratamientos, califica el lead y le agenda una cita</strong> para ma&ntilde;ana a las 10. Cuando llegas a la oficina, ya tienes la cita confirmada.</p>
+        <div class="quote-author">Cl&iacute;nica Est&eacute;tica &mdash; Madrid</div>
       </div>
       <div class="quote-card reveal">
-        <p class="quote-text">Tu agente de TikTok encontro que los <strong>tutoriales de "antes y despues" de 45 segundos</strong> son los que mas viralizan en tu sector. Te da 5 ideas de contenido con hooks probados. Tu community manager solo tiene que grabarlo.</p>
-        <div class="quote-author">Ecommerce — Barcelona</div>
+        <p class="quote-text">Es lunes. Tu agente de TikTok encontr&oacute; que los <strong>tutoriales de "antes y despu&eacute;s" de 45 segundos</strong> son los que m&aacute;s viralizan en tu sector. Te da 5 ideas con hooks probados. Tu Ad Spy ya analiz&oacute; los 47 anuncios nuevos de tus competidores.</p>
+        <div class="quote-author">Ecommerce &mdash; Barcelona</div>
       </div>
       <div class="quote-card reveal-right">
-        <p class="quote-text">Un cliente potencial rellena tu formulario a las 3 de la madrugada. Tu agente <strong>lo registra en el CRM, le envia un email personalizado y lo mete en un workflow</strong> de seguimiento. Cuando llegas a la oficina, ya tiene cita agendada.</p>
-        <div class="quote-author">Consultoria — Valencia</div>
+        <p class="quote-text">Recibes 80 emails al d&iacute;a. Tu Mail Manager <strong>los clasifica, responde los rutinarios autom&aacute;ticamente y te deja solo los 5 que realmente necesitan tu atenci&oacute;n</strong>. Has recuperado 2 horas de tu d&iacute;a. Cada d&iacute;a.</p>
+        <div class="quote-author">Consultor&iacute;a &mdash; Valencia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU'LL SEE IN THE LIVE -->
+<section>
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-pre" style="color:var(--orange);background:rgba(249,115,22,.1)">En el Directo</div>
+      <h2>Lo Que Vas a Ver<br>Con Tus Propios Ojos</h2>
+      <p>No vamos a contarte lo que hacen. Vamos a encenderlos delante de ti.</p>
+    </div>
+    <div class="agenda-grid">
+      <div class="agenda-item reveal">
+        <div class="agenda-num">01</div>
+        <h4>&#128373;&#65039; Espionaje en Directo</h4>
+        <p>Entraremos en Meta Ads y analizaremos los anuncios de competidores reales de los asistentes. Ver&aacute;s c&oacute;mo el agente los encuentra y analiza en tiempo real.</p>
+      </div>
+      <div class="agenda-item reveal">
+        <div class="agenda-num">02</div>
+        <h4>&#128200; Caza de Virales</h4>
+        <p>Buscaremos los tutoriales m&aacute;s virales en TikTok de sectores reales. El agente analizar&aacute; patrones y te dir&aacute; exactamente qu&eacute; contenido crear.</p>
+      </div>
+      <div class="agenda-item reveal">
+        <div class="agenda-num">03</div>
+        <h4>&#127760; Embudo en Directo</h4>
+        <p>Crearemos un embudo de venta completo EN VIVO. Ver&aacute;s c&oacute;mo el agente clona un template, lo personaliza y lo deja listo para captar leads.</p>
+      </div>
+      <div class="agenda-item reveal">
+        <div class="agenda-num">04</div>
+        <h4>&#128081; Orquestaci&oacute;n Total</h4>
+        <p>Le daremos una orden al Director y ver&aacute;s c&oacute;mo los 8 agentes se ponen a trabajar en paralelo. Resultado completo en minutos.</p>
       </div>
     </div>
   </div>
@@ -418,29 +606,30 @@ footer .logo-footer{height:28px;opacity:.5;margin-bottom:16px}
   <div class="container">
     <div class="reveal">
       <div class="live-badge">Evento en Directo</div>
-      <h2 class="glow">El Martes 25 de Marzo<br>Lo Veras <em>Con Tus Propios Ojos</em></h2>
-      <p style="color:var(--gray-light);max-width:650px;margin:0 auto 32px;font-size:1.1rem;line-height:1.8">
-        No vamos a contarte lo que hacen los agentes IA. Vamos a <strong style="color:var(--white)">encenderlos delante de ti</strong> y veras como espian anuncios, encuentran virales, crean embudos y generan reportes. <strong style="color:var(--white)">Todo en tiempo real. Todo con datos reales.</strong>
+      <h2 class="glow">Martes 25 de Marzo<br>Lo Ver&aacute;s <em>Con Tus Propios Ojos</em></h2>
+      <p style="color:var(--gray-light);max-width:680px;margin:0 auto 32px;font-size:1.1rem;line-height:1.8">
+        Vamos a <strong style="color:var(--white)">encender los 8 agentes delante de ti</strong> y ver&aacute;s c&oacute;mo esp&iacute;an anuncios, encuentran virales, crean embudos, contestan llamadas, responden emails, generan facturas y reportes. <strong style="color:var(--white)">Todo en tiempo real. Todo con datos reales. Todo con negocios de los asistentes.</strong>
       </p>
     </div>
     <div class="live-details reveal">
       <div class="live-detail">&#128197; <strong>Martes 25 de Marzo</strong></div>
-      <div class="live-detail">&#128336; <strong>19:00h</strong> (Espana)</div>
+      <div class="live-detail">&#128336; <strong>19:00h</strong> (Espa&ntilde;a)</div>
       <div class="live-detail">&#127909; <strong>Online</strong></div>
     </div>
     <div class="countdown reveal" id="countdown">
-      <div class="cd-block"><div class="cd-num" id="cd-days">--</div><div class="cd-label">Dias</div></div>
+      <div class="cd-block"><div class="cd-num" id="cd-days">--</div><div class="cd-label">D&iacute;as</div></div>
       <div class="cd-block"><div class="cd-num" id="cd-hours">--</div><div class="cd-label">Horas</div></div>
       <div class="cd-block"><div class="cd-num" id="cd-mins">--</div><div class="cd-label">Min</div></div>
       <div class="cd-block"><div class="cd-num" id="cd-secs">--</div><div class="cd-label">Seg</div></div>
     </div>
-    <p class="reveal" style="color:var(--gray);font-size:.95rem;margin-top:32px">Ya estas dentro. Solo tienes que estar el martes a las 19:00h.</p>
+    <p class="reveal" style="color:var(--white);font-size:1.1rem;font-weight:600;margin-top:32px">Ya est&aacute;s dentro. Solo tienes que estar el martes a las 19:00h.</p>
+    <p class="reveal" style="color:var(--gray);font-size:.85rem;margin-top:8px">Los que no est&eacute;n, no tendr&aacute;n acceso a la grabaci&oacute;n.</p>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <img src="https://manus.storage.googleapis.com/ee4b0790-5592-4bdf-b62b-a864bbf496c5/logobueno.webp" alt="Focus Consulting Group" class="logo-footer"><br>
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288181369/UDVtIRJwcliKGSZh.webp" alt="Focus Consulting Group" class="logo-footer"><br>
     <p>&copy; 2026 Focus Consulting Group. Todos los derechos reservados.</p>
   </div>
 </footer>
@@ -448,11 +637,13 @@ footer .logo-footer{height:28px;opacity:.5;margin-bottom:16px}
 <div id="particles"></div>
 
 <script>
+// Scroll reveal
 const observer=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
-},{threshold:.15,rootMargin:'0px 0px -50px 0px'});
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>observer.observe(el));
 
+// Countdown - 25 marzo 2026 19:00 hora España (UTC+1 = 18:00 UTC)
 function updateCountdown(){
   const target=new Date('2026-03-25T18:00:00Z').getTime();
   const now=Date.now();
@@ -476,20 +667,36 @@ function updateCountdown(){
 updateCountdown();
 setInterval(updateCountdown,1000);
 
+// Particles
 const pc=document.getElementById('particles');
-for(let i=0;i<20;i++){
+for(let i=0;i<25;i++){
   const p=document.createElement('div');
   p.className='particle';
   p.style.left=Math.random()*100+'vw';
-  p.style.animation='float-particle '+(15+Math.random()*20)+'s '+(Math.random()*15)+'s infinite linear';
+  p.style.animation='float-particle '+(12+Math.random()*18)+'s '+(Math.random()*12)+'s infinite linear';
   pc.appendChild(p);
 }
 
+// Nav scroll effect
 window.addEventListener('scroll',()=>{
   const nav=document.querySelector('nav');
-  if(window.scrollY>50)nav.style.background='rgba(10,15,30,.95)';
-  else nav.style.background='rgba(10,15,30,.85)';
+  if(window.scrollY>50)nav.style.background='rgba(10,15,30,.97)';
+  else nav.style.background='rgba(10,15,30,.9)';
 });
+
+// Animate stat numbers on scroll
+const statNums=document.querySelectorAll('.stat-num,.big-num');
+const numObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.transition='all .6s cubic-bezier(.16,1,.3,1)';
+      e.target.style.transform='scale(1.05)';
+      setTimeout(()=>{e.target.style.transform='scale(1)'},600);
+      numObserver.unobserve(e.target);
+    }
+  });
+},{threshold:.5});
+statNums.forEach(el=>numObserver.observe(el));
 </script>
 </body>
 </html>
