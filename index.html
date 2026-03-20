@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crea Tu Agente IA — Focus Consulting Group</title>
+  <meta name="description" content="Guía paso a paso para crear tu propio agente de Inteligencia Artificial. Aprende a construir un equipo de empleados IA que trabajan 24/7 para tu negocio.">
+  <meta property="og:title" content="Crea Tu Agente IA — Focus Consulting Group">
+  <meta property="og:description" content="Guía paso a paso para crear tu propio agente de Inteligencia Artificial que trabaja 24/7 para tu negocio.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1a1f3a;
+      --navy-deep: #0f1225;
+      --navy-light: #252b4d;
+      --gold: #c5a55a;
+      --gold-light: #d4b96e;
+      --gold-glow: rgba(197, 165, 90, 0.3);
+      --white: #ffffff;
+      --gray-100: #f4f5f7;
+      --gray-200: #e2e4e9;
+      --gray-300: #c8ccd5;
+      --gray-500: #8891a5;
+      --gray-700: #4a5068;
+      --step-blue: #3b82f6;
+      --step-purple: #8b5cf6;
+      --step-emerald: #10b981;
+      --step-orange: #f59e0b;
+      --step-rose: #f43f5e;
+      --step-cyan: #06b6d4;
+      --step-indigo: #6366f1;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--navy-deep);
+      color: var(--white);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes pulse-gold {
+      0%, 100% { box-shadow: 0 0 0 0 var(--gold-glow); }
+      50% { box-shadow: 0 0 30px 10px var(--gold-glow); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: var(--gold); }
+    }
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes particle-float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-800px) rotate(720deg); opacity: 0; }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .animate-delay-1 { transition-delay: 0.1s; }
+    .animate-delay-2 { transition-delay: 0.2s; }
+    .animate-delay-3 { transition-delay: 0.3s; }
+    .animate-delay-4 { transition-delay: 0.4s; }
+    .animate-delay-5 { transition-delay: 0.5s; }
+
+    /* ===== PARTICLES BACKGROUND ===== */
+    .particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      width: 4px; height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0.15;
+      animation: particle-float linear infinite;
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0.75rem 0;
+      background: rgba(15, 18, 37, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(197, 165, 90, 0.1);
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      padding: 0.5rem 0;
+      background: rgba(15, 18, 37, 0.95);
+      border-bottom-color: rgba(197, 165, 90, 0.25);
+    }
+    .navbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-logo {
+      height: 36px;
+      transition: transform 0.3s ease;
+    }
+    .navbar-logo:hover { transform: scale(1.05); }
+    .navbar-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.5rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy-deep);
+      font-weight: 600;
+      font-size: 0.85rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      letter-spacing: 0.02em;
+    }
+    .navbar-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px var(--gold-glow);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 1.5rem 4rem;
+      background: radial-gradient(ellipse at 50% 30%, rgba(197, 165, 90, 0.08) 0%, transparent 60%),
+                  linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 30% 40%, rgba(197, 165, 90, 0.04) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 60%, rgba(99, 102, 241, 0.03) 0%, transparent 50%);
+      animation: gradient-shift 15s ease infinite;
+      background-size: 200% 200%;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      background: rgba(197, 165, 90, 0.1);
+      border: 1px solid rgba(197, 165, 90, 0.25);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease both;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero-badge .dot {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse-gold 2s ease infinite;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+    .hero h1 .gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 3s linear infinite;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--gray-300);
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      animation: fadeInUp 0.8s ease 0.6s both;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy-deep);
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px var(--gold-glow);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1rem 2.5rem;
+      background: transparent;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      margin-top: 4rem;
+      animation: fadeInUp 0.8s ease 0.8s both;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      margin-top: 0.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== SECTION BASE ===== */
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 6rem 1.5rem;
+    }
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-label .line {
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray-300);
+      max-width: 700px;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+    }
+
+    /* ===== WHAT IS AN AI AGENT ===== */
+    .what-section {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    }
+    .what-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .what-visual {
+      position: relative;
+      padding: 2rem;
+    }
+    .agent-card-preview {
+      background: linear-gradient(145deg, var(--navy-light), var(--navy));
+      border: 1px solid rgba(197, 165, 90, 0.2);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .agent-card-preview::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--step-purple), var(--step-blue));
+    }
+    .agent-avatar {
+      width: 80px; height: 80px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--gold), var(--step-purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      animation: float 4s ease-in-out infinite;
+    }
+    .agent-card-preview h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .agent-card-preview p {
+      color: var(--gray-300);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    .agent-skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .agent-skill {
+      padding: 0.35rem 0.85rem;
+      background: rgba(197, 165, 90, 0.1);
+      border: 1px solid rgba(197, 165, 90, 0.2);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+    .what-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      color: var(--gold-light);
+    }
+    .what-text p {
+      color: var(--gray-300);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .what-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .what-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      background: rgba(197, 165, 90, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(197, 165, 90, 0.08);
+      transition: all 0.3s ease;
+    }
+    .what-feature:hover {
+      background: rgba(197, 165, 90, 0.1);
+      border-color: rgba(197, 165, 90, 0.2);
+      transform: translateX(5px);
+    }
+    .what-feature-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .what-feature-text h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .what-feature-text p {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      margin-bottom: 0;
+    }
+
+    /* ===== STEPS ===== */
+    .steps-section {
+      background: var(--navy-deep);
+    }
+    .steps-timeline {
+      position: relative;
+      padding-left: 0;
+    }
+    .step-item {
+      position: relative;
+      margin-bottom: 4rem;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+    .step-number-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .step-number {
+      width: 64px; height: 64px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      position: relative;
+      z-index: 2;
+      transition: all 0.4s ease;
+    }
+    .step-number::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 20px;
+      background: inherit;
+      opacity: 0.2;
+      filter: blur(10px);
+      z-index: -1;
+    }
+    .step-line {
+      width: 2px;
+      flex-grow: 1;
+      min-height: 60px;
+      background: linear-gradient(180deg, rgba(197, 165, 90, 0.3), transparent);
+      margin-top: 0.5rem;
+    }
+    .step-content {
+      background: linear-gradient(145deg, var(--navy-light), var(--navy));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .step-content::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      border-radius: 4px 0 0 4px;
+    }
+    .step-content:hover {
+      transform: translateY(-4px);
+      border-color: rgba(197, 165, 90, 0.15);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .step-icon {
+      font-size: 1.5rem;
+    }
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .step-description {
+      color: var(--gray-300);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    .step-tip {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      background: rgba(197, 165, 90, 0.06);
+      border: 1px solid rgba(197, 165, 90, 0.12);
+      border-radius: 12px;
+      font-size: 0.85rem;
+      color: var(--gray-300);
+    }
+    .step-tip-icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .step-code {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1.25rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--gray-300);
+      overflow-x: auto;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+    .step-code .keyword { color: var(--step-purple); }
+    .step-code .string { color: var(--step-emerald); }
+    .step-code .comment { color: var(--gray-500); font-style: italic; }
+    .step-code .function { color: var(--step-blue); }
+
+    /* Step colors */
+    .step-1 .step-number { background: linear-gradient(135deg, var(--step-blue), #2563eb); }
+    .step-1 .step-content::before { background: var(--step-blue); }
+    .step-2 .step-number { background: linear-gradient(135deg, var(--step-purple), #7c3aed); }
+    .step-2 .step-content::before { background: var(--step-purple); }
+    .step-3 .step-number { background: linear-gradient(135deg, var(--step-emerald), #059669); }
+    .step-3 .step-content::before { background: var(--step-emerald); }
+    .step-4 .step-number { background: linear-gradient(135deg, var(--step-orange), #d97706); }
+    .step-4 .step-content::before { background: var(--step-orange); }
+    .step-5 .step-number { background: linear-gradient(135deg, var(--step-rose), #e11d48); }
+    .step-5 .step-content::before { background: var(--step-rose); }
+    .step-6 .step-number { background: linear-gradient(135deg, var(--step-cyan), #0891b2); }
+    .step-6 .step-content::before { background: var(--step-cyan); }
+    .step-7 .step-number { background: linear-gradient(135deg, var(--gold), var(--gold-light)); }
+    .step-7 .step-content::before { background: var(--gold); }
+
+    /* ===== LIVE EVENT CTA ===== */
+    .live-section {
+      background: linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 50%, var(--navy-deep) 100%);
+      text-align: center;
+      padding: 8rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .live-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 600px; height: 600px;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(197, 165, 90, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .live-card {
+      max-width: 700px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, var(--navy-light), var(--navy));
+      border: 1px solid rgba(197, 165, 90, 0.2);
+      border-radius: 24px;
+      padding: 3.5rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .live-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--step-rose), var(--gold));
+    }
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: rgba(244, 63, 94, 0.15);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--step-rose);
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .live-badge .pulse {
+      width: 8px; height: 8px;
+      background: var(--step-rose);
+      border-radius: 50%;
+      animation: pulse-gold 1.5s ease infinite;
+    }
+    .live-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .live-card h2 .gold { color: var(--gold); }
+    .live-card p {
+      color: var(--gray-300);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .live-date {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .live-date-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--gray-200);
+    }
+    .live-date-item .icon {
+      font-size: 1.2rem;
+    }
+    .live-countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .countdown-item {
+      background: rgba(197, 165, 90, 0.08);
+      border: 1px solid rgba(197, 165, 90, 0.15);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      text-align: center;
+      min-width: 75px;
+    }
+    .countdown-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .countdown-label {
+      font-size: 0.65rem;
+      color: var(--gray-500);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.25rem;
+    }
+
+    /* ===== AGENTS SHOWCASE ===== */
+    .agents-section {
+      background: var(--navy);
+    }
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .agent-showcase-card {
+      background: linear-gradient(145deg, var(--navy-light), var(--navy-deep));
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 2rem;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .agent-showcase-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .agent-showcase-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(197, 165, 90, 0.2);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+    .agent-showcase-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .agent-showcase-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .agent-showcase-card .role {
+      font-size: 0.75rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .agent-showcase-card p {
+      font-size: 0.85rem;
+      color: var(--gray-300);
+      line-height: 1.6;
+    }
+    .agent-color-1::before { background: linear-gradient(90deg, var(--step-blue), var(--step-indigo)); }
+    .agent-color-2::before { background: linear-gradient(90deg, var(--step-rose), var(--step-orange)); }
+    .agent-color-3::before { background: linear-gradient(90deg, var(--step-emerald), var(--step-cyan)); }
+    .agent-color-4::before { background: linear-gradient(90deg, var(--step-orange), var(--gold)); }
+    .agent-color-5::before { background: linear-gradient(90deg, var(--step-purple), var(--step-rose)); }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--navy-deep);
+      border-top: 1px solid rgba(197, 165, 90, 0.1);
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    .footer-logo {
+      height: 32px;
+      margin-bottom: 1rem;
+      opacity: 0.7;
+    }
+    .footer p {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .what-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .what-visual { order: -1; }
+      .hero-stats { gap: 1.5rem; }
+      .hero-stat-number { font-size: 2rem; }
+      .step-item {
+        grid-template-columns: 50px 1fr;
+        gap: 1rem;
+      }
+      .step-number { width: 50px; height: 50px; font-size: 1.2rem; border-radius: 14px; }
+      .step-content { padding: 1.75rem; }
+      .live-card { padding: 2.5rem 1.5rem; }
+      .live-date { gap: 1rem; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 7rem 1rem 3rem; min-height: auto; }
+      .hero h1 { font-size: 2rem; }
+      .hero-subtitle { font-size: 0.95rem; }
+      .hero-cta-group { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; max-width: 320px; }
+      .hero-stats { flex-direction: column; gap: 1.5rem; }
+      .section { padding: 4rem 1rem; }
+      .section-title { font-size: 1.75rem; }
+      .step-item { grid-template-columns: 40px 1fr; gap: 0.75rem; }
+      .step-number { width: 40px; height: 40px; font-size: 1rem; border-radius: 12px; }
+      .step-content { padding: 1.25rem; border-radius: 14px; }
+      .step-title { font-size: 1.15rem; }
+      .live-countdown { gap: 0.5rem; }
+      .countdown-item { padding: 0.75rem; min-width: 60px; }
+      .countdown-number { font-size: 1.5rem; }
+      .agents-grid { grid-template-columns: 1fr; }
+      .navbar-cta { padding: 0.5rem 1rem; font-size: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288181369/excIyulGGJePYebe.webp" alt="Focus Consulting Group" class="navbar-logo">
+      <a href="#live" class="navbar-cta">
+        <span>&#9679;</span> Reservar Plaza — Directo 25 Marzo
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Guia Exclusiva — Focus Consulting Group
+      </div>
+      <h1>Crea Tu Propio<br><span class="gold">Agente de Inteligencia Artificial</span></h1>
+      <p class="hero-subtitle">
+        Aprende paso a paso a construir un empleado IA que trabaja 24/7 para tu negocio. 
+        Espia a tu competencia, viraliza tu contenido y cierra ventas en automatico.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#pasos" class="btn-primary">
+          &#128640; Empezar la Guia
+        </a>
+        <a href="#live" class="btn-secondary">
+          &#128308; Ver Directo — 25 Marzo
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number">5</div>
+          <div class="hero-stat-label">Agentes IA</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">24/7</div>
+          <div class="hero-stat-label">Trabajando</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number">7</div>
+          <div class="hero-stat-label">Pasos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is an AI Agent -->
+  <section class="section what-section" id="que-es">
+    <div class="section-inner">
+      <div class="what-grid">
+        <div class="what-text animate-on-scroll">
+          <div class="section-label"><span class="line"></span> Concepto Clave</div>
+          <h2 class="section-title">Que es un Agente IA y por que lo necesitas</h2>
+          <p style="color: var(--gray-300); margin-bottom: 1.5rem; font-size: 0.95rem;">
+            Un agente IA no es un chatbot. Es un <strong style="color: var(--gold);">empleado digital con cerebro propio</strong> que ejecuta tareas reales para tu negocio: investiga a tu competencia, crea contenido viral, construye embudos de venta y genera reportes. Todo sin descanso, sin vacaciones y mejorando con cada uso.
+          </p>
+          <div class="what-features">
+            <div class="what-feature">
+              <div class="what-feature-icon" style="background: rgba(59,130,246,0.15); color: var(--step-blue);">&#129504;</div>
+              <div class="what-feature-text">
+                <h4>Memoria Persistente</h4>
+                <p>Recuerda cada tarea, cada dato, cada insight. Cuanto mas lo usas, mas inteligente se vuelve.</p>
+              </div>
+            </div>
+            <div class="what-feature">
+              <div class="what-feature-icon" style="background: rgba(139,92,246,0.15); color: var(--step-purple);">&#128274;</div>
+              <div class="what-feature-text">
+                <h4>Acceso a Herramientas Reales</h4>
+                <p>Meta Ads, TikTok, Gmail, Instagram, CRM, GitHub... Conectado a las herramientas que ya usas.</p>
+              </div>
+            </div>
+            <div class="what-feature">
+              <div class="what-feature-icon" style="background: rgba(16,185,129,0.15); color: var(--step-emerald);">&#9889;</div>
+              <div class="what-feature-text">
+                <h4>Ejecucion Autonoma</h4>
+                <p>Le das una orden y ejecuta. No necesita supervision constante. Trabaja mientras tu duermes.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="what-visual animate-on-scroll animate-delay-2">
+          <div class="agent-card-preview">
+            <div class="agent-avatar">&#129302;</div>
+            <h3>Ad Spy</h3>
+            <p>Espia los anuncios de tu competencia en Meta Ads, analiza sus estrategias y te dice exactamente que estan haciendo.</p>
+            <div class="agent-skills">
+              <span class="agent-skill">Meta Ads</span>
+              <span class="agent-skill">Analisis IA</span>
+              <span class="agent-skill">Reportes</span>
+              <span class="agent-skill">Competencia</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="section steps-section" id="pasos">
+    <div class="section-inner">
+      <div class="section-label animate-on-scroll"><span class="line"></span> Guia Paso a Paso</div>
+      <h2 class="section-title animate-on-scroll">7 Pasos para Crear tu Agente IA</h2>
+      <p class="section-subtitle animate-on-scroll">Sigue esta guia y tendras tu primer agente funcionando. En el directo del 25 de marzo te ensenamos como llevarlo al siguiente nivel.</p>
+
+      <div class="steps-timeline">
+
+        <!-- Step 1 -->
+        <div class="step-item step-1 animate-on-scroll">
+          <div class="step-number-col">
+            <div class="step-number">1</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-header">
+              <span class="step-icon">&#127919;</span>
+              <h3 class="step-title">Define la Mision de tu Agente</h3>
+            </div>
+            <p class="step-description">
+              Antes de tocar cualquier herramienta, necesitas definir con claridad <strong>que problema resuelve</strong> tu agente. Un agente sin mision clara es como un empleado sin puesto de trabajo. Piensa en las tareas que mas tiempo te quitan en tu negocio: espiar a la competencia, buscar tendencias, crear contenido, gestionar leads...
+            </p>
+            <div class="step-tip">
+              <span class="step-tip-icon">&#128161;</span>
+              <div>
+                <strong>Ejemplo real:</strong> "Mi agente se llama Ad Spy. Su mision es revisar cada dia los anuncios activos de mis 5 competidores principales en Meta Ads y enviarme un resumen con lo que estan haciendo diferente."
+              </div>
+            </div>
+            <div class="step-code">
+              <span class="comment">// Define la identidad de tu agente</span><br>
+              <span class="keyword">const</span> miAgente = {<br>
+              &nbsp;&nbsp;nombre: <span class="string">"Ad Spy"</span>,<br>
+              &nbsp;&nbsp;mision: <span class="string">"Espiar anuncios de competencia"</span>,<br>
+              &nbsp;&nbsp;sector: <span class="string">"Clinicas esteticas"</span>,<br>
+              &nbsp;&nbsp;competidores: [<span class="string">"Clinica A"</span>, <span class="string">"Clinica B"</span>],<br>
+              &nbsp;&nbsp;frecuencia: <span class="string">"diaria"</span><br>
+              };
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-item step-2 animate-on-scroll">
+          <div class="step-number-col">
+            <div class="step-number">2</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-header">
+              <span class="step-icon">&#129504;</span>
+              <h3 class="step-title">Elige el Cerebro (Motor IA)</h3>
+            </div>
+            <p class="step-description">
+              El cerebro de tu agente es el modelo de IA que procesa la informacion y toma decisiones. Hay varias opciones segun lo que necesites. Para analisis rapidos y baratos, <strong>Gemini Flash</strong> es ideal. Para tareas complejas que requieren navegar por internet, <strong>Manus</strong> es imbatible. La clave es usar el motor correcto para cada tarea.
+            </p>
+            <div class="step-tip">
+              <span class="step-tip-icon">&#128176;</span>
+              <div>
+                <strong>Coste real:</strong> Gemini Flash cuesta ~0.005$ por consulta. Claude Sonnet ~0.05$. Manus ~2-5$ por tarea compleja. Un agente medio cuesta menos de 15$ al mes en APIs.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-item step-3 animate-on-scroll">
+          <div class="step-number-col">
+            <div class="step-number">3</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-header">
+              <span class="step-icon">&#128268;</span>
+              <h3 class="step-title">Conecta las Herramientas</h3>
+            </div>
+            <p class="step-description">
+              Un agente sin herramientas es solo un chatbot. La magia esta en conectarlo a las <strong>APIs y plataformas reales</strong> que usa tu negocio. Meta Ads para espiar anuncios, TikTok para encontrar virales, Gmail para enviar emails, Go High Level para gestionar tu CRM, GitHub para crear embudos...
+            </p>
+            <div class="step-code">
+              <span class="comment">// Conectores disponibles para tu agente</span><br>
+              <span class="keyword">const</span> conectores = {<br>
+              &nbsp;&nbsp;publicidad: [<span class="string">"Meta Ads"</span>, <span class="string">"Google Ads"</span>],<br>
+              &nbsp;&nbsp;redes: [<span class="string">"TikTok"</span>, <span class="string">"Instagram"</span>],<br>
+              &nbsp;&nbsp;comunicacion: [<span class="string">"Gmail"</span>, <span class="string">"Slack"</span>],<br>
+              &nbsp;&nbsp;crm: [<span class="string">"Go High Level"</span>, <span class="string">"HubSpot"</span>],<br>
+              &nbsp;&nbsp;desarrollo: [<span class="string">"GitHub"</span>, <span class="string">"Canva"</span>]<br>
+              };
+            </div>
+            <div class="step-tip">
+              <span class="step-tip-icon">&#128273;</span>
+              <div>
+                <strong>Importante:</strong> Cada herramienta se conecta con una API key. En el directo del 25 de marzo te ensenamos a conectar cada una paso a paso.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-item step-4 animate-on-scroll">
+          <div class="step-number-col">
+            <div class="step-number">4</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-header">
+              <span class="step-icon">&#128200;</span>
+              <h3 class="step-title">Dale Memoria al Agente</h3>
+            </div>
+            <p class="step-description">
+              Aqui es donde tu agente pasa de ser una herramienta a ser un <strong>empleado de verdad</strong>. La memoria persistente permite que el agente recuerde todo lo que ha hecho, los datos que ha encontrado, y las preferencias de tu negocio. Tiene 4 capas de memoria:
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;">
+              <div style="padding: 1rem; background: rgba(59,130,246,0.08); border-radius: 10px; border: 1px solid rgba(59,130,246,0.15);">
+                <strong style="color: var(--step-blue); font-size: 0.85rem;">&#128218; Core Memory</strong>
+                <p style="font-size: 0.8rem; color: var(--gray-500); margin-top: 0.25rem;">Tu sector, competidores, objetivos. Siempre disponible.</p>
+              </div>
+              <div style="padding: 1rem; background: rgba(139,92,246,0.08); border-radius: 10px; border: 1px solid rgba(139,92,246,0.15);">
+                <strong style="color: var(--step-purple); font-size: 0.85rem;">&#128247; Episodic Memory</strong>
+                <p style="font-size: 0.8rem; color: var(--gray-500); margin-top: 0.25rem;">Cada tarea ejecutada y sus resultados.</p>
+              </div>
+              <div style="padding: 1rem; background: rgba(16,185,129,0.08); border-radius: 10px; border: 1px solid rgba(16,185,129,0.15);">
+                <strong style="color: var(--step-emerald); font-size: 0.85rem;">&#127891; Semantic Memory</strong>
+                <p style="font-size: 0.8rem; color: var(--gray-500); margin-top: 0.25rem;">Hechos del sector, benchmarks, tendencias.</p>
+              </div>
+              <div style="padding: 1rem; background: rgba(245,158,11,0.08); border-radius: 10px; border: 1px solid rgba(245,158,11,0.15);">
+                <strong style="color: var(--step-orange); font-size: 0.85rem;">&#9881;&#65039; Procedural Memory</strong>
+                <p style="font-size: 0.8rem; color: var(--gray-500); margin-top: 0.25rem;">Mejores practicas aprendidas con el uso.</p>
+              </div>
+            </div>
+            <div class="step-tip">
+              <span class="step-tip-icon">&#129504;</span>
+              <div>
+                <strong>Efecto WOW:</strong> Despues de 1 mes de uso, tu agente sabe mas de tu competencia que tu propio equipo. Y cada dia aprende mas.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step-item step-5 animate-on-scroll">
+          <div class="step-number-col">
+            <div class="step-number">5</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-header">
+              <span class="step-icon">&#127912;</span>
+              <h3 class="step-title">Disena la Personalidad</h3>
+            </div>
+            <p class="step-description">
+              Cada agente necesita una <strong>personalidad definida</strong> que determine como se comunica, que prioriza y como aborda los problemas. No es solo estetica — la personalidad afecta directamente a la calidad de los resultados. Un agente de analisis debe ser meticuloso y basado en datos. Un agente creativo debe ser atrevido y experimental.
+            </p>
+            <div class="step-code">
+              <span class="comment">// Personalidad del agente</span><br>
+              <span class="keyword">const</span> personalidad = {<br>
+              &nbsp;&nbsp;nombre: <span class="string">"Ad Spy"</span>,<br>
+              &nbsp;&nbsp;tono: <span class="string">"analitico, directo, basado en datos"</span>,<br>
+              &nbsp;&nbsp;prioridades: [<span class="string">"precision"</span>, <span class="string">"velocidad"</span>],<br>
+              &nbsp;&nbsp;estilo_reporte: <span class="string">"ejecutivo con graficos"</span>,<br>
+              &nbsp;&nbsp;idioma: <span class="string">"espanol"</span><br>
+              };
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="step-item step-6 animate-on-scroll">
+          <div class="step-number-col">
+            <div class="step-number">6</div>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-content">
+            <div class="step-header">
+              <span class="step-icon">&#128640;</span>
+              <h3 class="step-title">Lanza y Prueba tu Agente</h3>
+            </div>
+            <p class="step-description">
+              Es hora de poner a tu agente a trabajar. Dale su primera orden real y observa como la ejecuta. Empieza con tareas sencillas para verificar que todo funciona: "Busca los 5 anuncios mas recientes de [competidor] en Meta Ads". Revisa los resultados, ajusta la personalidad si es necesario, y ve aumentando la complejidad.
+            </p>
+            <div class="step-tip">
+              <span class="step-tip-icon">&#128736;</span>
+              <div>
+                <strong>Consejo pro:</strong> Las primeras 10 tareas son las mas importantes. El agente esta "aprendiendo" tu negocio. Se especifico en tus ordenes y corrige los resultados que no te convenzan.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="step-item step-7 animate-on-scroll">
+          <div class="step-number-col">
+            <div class="step-number">7</div>
+          </div>
+          <div class="step-content">
+            <div class="step-header">
+              <span class="step-icon">&#127775;</span>
+              <h3 class="step-title">Escala: Crea tu Equipo Completo</h3>
+            </div>
+            <p class="step-description">
+              Un agente esta bien. <strong>Un equipo de 5 agentes es imparable.</strong> Cada uno especializado en un area: espionaje publicitario, viralizacion, embudos de venta, CRM y reportes. El director (Claw) orquesta a todos. Le dices un sector y los 5 se ponen a trabajar en paralelo. En 10 minutos tienes un analisis completo que a un equipo humano le llevaria semanas.
+            </p>
+            <div class="step-tip">
+              <span class="step-tip-icon">&#128308;</span>
+              <div>
+                <strong>Esto es exactamente lo que te ensenamos en el directo del 25 de marzo.</strong> Veras como montamos un equipo completo de agentes en vivo, con datos reales, conectado a herramientas reales. No te lo pierdas.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Agents Showcase -->
+  <section class="section agents-section" id="agentes">
+    <div class="section-inner">
+      <div class="section-label animate-on-scroll"><span class="line"></span> El Equipo</div>
+      <h2 class="section-title animate-on-scroll">5 Agentes. 5 Superpoderes.</h2>
+      <p class="section-subtitle animate-on-scroll">Cada agente esta especializado en un area critica de tu negocio. Juntos forman un equipo imbatible.</p>
+
+      <div class="agents-grid">
+        <div class="agent-showcase-card agent-color-1 animate-on-scroll animate-delay-1">
+          <span class="agent-showcase-emoji">&#128081;</span>
+          <h3>Claw — El Director</h3>
+          <div class="role">Estrategia y Orquestacion</div>
+          <p>Le dices un sector y el distribuye las tareas a todos los agentes. Coordina, prioriza y te entrega el resultado final consolidado.</p>
+        </div>
+        <div class="agent-showcase-card agent-color-2 animate-on-scroll animate-delay-2">
+          <span class="agent-showcase-emoji">&#128373;</span>
+          <h3>Ad Spy — El Espia</h3>
+          <div class="role">Espionaje Publicitario</div>
+          <p>Busca y analiza los anuncios de tu competencia en Meta Ads. Te dice que estan haciendo, cuanto llevan y que puedes hacer mejor.</p>
+        </div>
+        <div class="agent-showcase-card agent-color-3 animate-on-scroll animate-delay-3">
+          <span class="agent-showcase-emoji">&#128248;</span>
+          <h3>TikTok Research</h3>
+          <div class="role">Viralizacion</div>
+          <p>Encuentra los tutoriales y videos mas virales de tu sector en TikTok. Analiza patrones y te dice exactamente que contenido crear.</p>
+        </div>
+        <div class="agent-showcase-card agent-color-4 animate-on-scroll animate-delay-4">
+          <span class="agent-showcase-emoji">&#127760;</span>
+          <h3>Landing Creator</h3>
+          <div class="role">Embudos de Venta</div>
+          <p>Crea embudos de venta personalizados en minutos usando templates profesionales de GitHub. Paginas que convierten.</p>
+        </div>
+        <div class="agent-showcase-card agent-color-5 animate-on-scroll animate-delay-5">
+          <span class="agent-showcase-emoji">&#129421;</span>
+          <h3>Reporte Lanzamiento</h3>
+          <div class="role">Analisis y Reportes</div>
+          <p>Recopila datos de todos los agentes y genera reportes ejecutivos completos. El gorila de los datos que lo analiza todo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Event CTA -->
+  <section class="section live-section" id="live">
+    <div class="section-inner">
+      <div class="live-card animate-on-scroll">
+        <div class="live-badge">
+          <span class="pulse"></span>
+          Evento en Directo
+        </div>
+        <h2>Aprende a Crear tu Equipo IA<br><span class="gold">en Directo</span></h2>
+        <p>
+          El martes 25 de marzo a las 19:00h te ensenamos EN VIVO como montar un equipo completo de agentes IA para tu negocio. Veras como espian a la competencia, encuentran virales, crean embudos y generan reportes. Todo con datos reales.
+        </p>
+        <div class="live-date">
+          <div class="live-date-item">
+            <span class="icon">&#128197;</span>
+            <strong>Martes 25 de Marzo</strong>
+          </div>
+          <div class="live-date-item">
+            <span class="icon">&#128336;</span>
+            <strong>19:00h (Espana)</strong>
+          </div>
+          <div class="live-date-item">
+            <span class="icon">&#127909;</span>
+            <strong>Online y Gratuito</strong>
+          </div>
+        </div>
+        <div class="live-countdown" id="countdown">
+          <div class="countdown-item">
+            <div class="countdown-number" id="days">--</div>
+            <div class="countdown-label">Dias</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="hours">--</div>
+            <div class="countdown-label">Horas</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="minutes">--</div>
+            <div class="countdown-label">Min</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="seconds">--</div>
+            <div class="countdown-label">Seg</div>
+          </div>
+        </div>
+        <a href="#" class="btn-primary" style="font-size: 1.1rem; padding: 1.1rem 3rem;" onclick="alert('Enlace del directo disponible pronto. Mantente atento.'); return false;">
+          &#128308; Reservar Mi Plaza Gratis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288181369/excIyulGGJePYebe.webp" alt="Focus Consulting Group" class="footer-logo">
+    <p>&copy; 2026 Focus Consulting Group. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Particles
+    (function() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 30; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.top = Math.random() * 100 + '%';
+        p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
+        p.style.animationDuration = (10 + Math.random() * 20) + 's';
+        p.style.animationDelay = (Math.random() * 10) + 's';
+        container.appendChild(p);
+      }
+    })();
+
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+    // Countdown to March 25, 2026 19:00 CET (Spain)
+    function updateCountdown() {
+      const target = new Date('2026-03-25T19:00:00+01:00');
+      const now = new Date();
+      const diff = target - now;
+
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        document.getElementById('seconds').textContent = '0';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
