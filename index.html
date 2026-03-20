@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tu Competencia Ya Usa Agentes IA — Focus Consulting Group</title>
-<meta name="description" content="Descubre cómo empresas de tu sector están usando agentes IA para espiar a la competencia, viralizar contenido y cerrar ventas 24/7. Directo exclusivo 24 de Marzo.">
-<meta property="og:title" content="Tu Competencia Ya Tiene Empleados que No Duermen">
-<meta property="og:description" content="Agentes IA que trabajan 24/7 para tu negocio. Directo exclusivo 24 de Marzo a las 19:00h.">
+<title>Guia: Agentes IA para tu Negocio — Focus Consulting Group</title>
+<meta name="description" content="Aprende qué son los agentes IA, cómo funcionan y cómo pueden transformar tu negocio. Guía formativa gratuita + demostración en directo 24 de Marzo.">
+<meta property="og:title" content="Guía Gratuita: Agentes IA para tu Negocio">
+<meta property="og:description" content="Aprende qué son, cómo funcionan y cómo aplicarlos. Directo exclusivo 24 de Marzo a las 19:00h.">
 <meta property="og:image" content="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288181369/UDVtIRJwcliKGSZh.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -31,14 +31,52 @@ body::before{content:'';position:fixed;inset:0;background:
   radial-gradient(ellipse 40% 30% at 10% 60%,rgba(168,85,247,.04),transparent);
   pointer-events:none;z-index:0}
 
-.reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+/* === ANIMATIONS === */
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
 .reveal.visible{opacity:1;transform:none}
-.reveal-left{opacity:0;transform:translateX(-40px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.reveal-left{opacity:0;transform:translateX(-50px);transition:all .8s cubic-bezier(.16,1,.3,1)}
 .reveal-left.visible{opacity:1;transform:none}
-.reveal-right{opacity:0;transform:translateX(40px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.reveal-right{opacity:0;transform:translateX(50px);transition:all .8s cubic-bezier(.16,1,.3,1)}
 .reveal-right.visible{opacity:1;transform:none}
-.reveal-scale{opacity:0;transform:scale(.9);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.reveal-scale{opacity:0;transform:scale(.85);transition:all .8s cubic-bezier(.16,1,.3,1)}
 .reveal-scale.visible{opacity:1;transform:scale(1)}
+.reveal-rotate{opacity:0;transform:translateY(30px) rotate(-2deg);transition:all .9s cubic-bezier(.16,1,.3,1)}
+.reveal-rotate.visible{opacity:1;transform:none}
+
+/* Staggered children */
+.stagger .reveal{transition-delay:calc(var(--i,0) * 120ms)}
+
+/* Glow pulse for key elements */
+@keyframes glow-pulse{0%,100%{box-shadow:0 0 20px rgba(201,168,76,.15)}50%{box-shadow:0 0 40px rgba(201,168,76,.3),0 0 80px rgba(201,168,76,.1)}}
+.glow-box{animation:glow-pulse 3s ease-in-out infinite}
+
+/* Floating animation */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.float{animation:float 4s ease-in-out infinite}
+
+/* Typewriter cursor */
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.typewriter-cursor{display:inline-block;width:3px;height:1em;background:var(--gold);margin-left:4px;
+  animation:blink .8s step-end infinite;vertical-align:text-bottom}
+
+/* Shimmer effect */
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.shimmer{background:linear-gradient(90deg,transparent 0%,rgba(201,168,76,.08) 50%,transparent 100%);
+  background-size:200% 100%;animation:shimmer 3s ease-in-out infinite}
+
+/* Progress bar fill */
+@keyframes fill-bar{from{width:0}to{width:var(--fill,80%)}}
+.progress-fill{animation:fill-bar 1.5s cubic-bezier(.16,1,.3,1) forwards}
+
+/* Counter animation */
+@keyframes count-pop{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+
+/* Gradient text */
+.gradient-text{background:linear-gradient(135deg,var(--gold),var(--gold-light),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* Pulse ring */
+@keyframes pulse-ring{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.5);opacity:0}}
 
 .container{max-width:1100px;margin:0 auto;padding:0 20px}
 section{position:relative;z-index:1;padding:64px 0}
@@ -50,105 +88,126 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:12px 0;
 nav .container{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .nav-logo-wrap{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .nav-logo{height:40px;opacity:1;transition:opacity .3s;filter:drop-shadow(0 0 10px rgba(201,168,76,.3))}
-.nav-logo:hover{opacity:.9}
 .nav-live{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;
-  background:linear-gradient(135deg,rgba(239,68,68,.15),rgba(239,68,68,.05));
-  border:1px solid rgba(239,68,68,.4);border-radius:100px;color:#fff;font-size:.72rem;
+  background:linear-gradient(135deg,rgba(201,168,76,.15),rgba(201,168,76,.05));
+  border:1px solid rgba(201,168,76,.4);border-radius:100px;color:var(--gold);font-size:.7rem;
   font-weight:700;letter-spacing:.06em;text-transform:uppercase;
-  transition:all .3s;text-decoration:none;cursor:default;white-space:nowrap}
-.nav-live::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--red);
-  animation:pulse-dot 1.5s infinite;box-shadow:0 0 8px var(--red);flex-shrink:0}
+  white-space:nowrap;text-decoration:none}
+.nav-live::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--gold);
+  animation:pulse-dot 1.5s infinite;box-shadow:0 0 8px var(--gold);flex-shrink:0}
 @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
 
 /* HERO */
 .hero{min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding-top:80px;text-align:center}
-.hero-pre{display:inline-block;padding:6px 18px;border:1px solid rgba(201,168,76,.3);
-  border-radius:100px;font-size:.7rem;font-weight:600;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--gold);margin-bottom:24px;
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;
+  border:1px solid rgba(201,168,76,.3);border-radius:100px;font-size:.7rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;
   background:rgba(201,168,76,.06)}
-.hero h1{font-family:var(--font-display);font-size:clamp(1.8rem,5.5vw,4.2rem);
-  font-weight:900;line-height:1.1;margin-bottom:24px;color:var(--white)}
-.hero h1 em{font-style:italic;color:var(--gold);display:block;margin-top:4px}
-.hero-sub{font-size:clamp(.95rem,2vw,1.15rem);color:var(--gray-light);max-width:640px;
-  margin:0 auto 16px;line-height:1.75;padding:0 8px}
-.hero-sub strong{color:var(--white);font-weight:600}
-.hero-urgency{font-size:clamp(.95rem,2vw,1.1rem);color:var(--red);font-weight:700;margin-bottom:40px;
-  animation:urgency-pulse 3s infinite}
-@keyframes urgency-pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.hero-badge .badge-icon{font-size:1rem}
+.hero h1{font-family:var(--font-display);font-size:clamp(1.7rem,5vw,3.8rem);
+  font-weight:900;line-height:1.1;margin-bottom:20px;color:var(--white)}
+.hero h1 em{font-style:italic;color:var(--gold);display:block;margin-top:8px}
+.hero-learn{font-size:clamp(.95rem,1.8vw,1.15rem);color:var(--gray-light);max-width:640px;
+  margin:0 auto 32px;line-height:1.8;padding:0 8px}
+.hero-learn strong{color:var(--white);font-weight:600}
 
-.stats-row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:40px}
-.stat{text-align:center;padding:16px 12px;background:var(--navy-mid);border-radius:12px;
-  border:1px solid rgba(255,255,255,.05)}
+/* Learn checklist in hero */
+.learn-list{display:flex;flex-direction:column;gap:12px;max-width:520px;margin:0 auto 36px;text-align:left}
+.learn-item{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;
+  background:rgba(201,168,76,.04);border:1px solid rgba(201,168,76,.12);border-radius:12px;
+  font-size:.9rem;color:var(--gray-light);transition:all .4s}
+.learn-item:hover{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.08);transform:translateX(4px)}
+.learn-item .check{color:var(--gold);font-weight:700;font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.learn-item strong{color:var(--white)}
+
+.hero-cta-wrap{display:flex;flex-direction:column;align-items:center;gap:12px}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);
+  font-weight:800;font-size:1rem;border-radius:100px;text-decoration:none;
+  transition:all .3s;letter-spacing:.02em;border:none;cursor:pointer}
+.hero-cta:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(201,168,76,.35)}
+.hero-cta-sub{font-size:.75rem;color:var(--gray);font-style:italic}
+
+/* PROGRESS BAR */
+.reading-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--orange));
+  z-index:200;width:0;transition:width .1s linear}
+
+/* CHAPTER MARKER */
+.chapter{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.chapter-num{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:900;font-size:1.2rem;color:var(--navy);flex-shrink:0;
+  position:relative}
+.chapter-num::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:2px solid;opacity:.3}
+.chapter-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;line-height:1.3}
+.chapter-title{font-family:var(--font-display);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:700;color:var(--white);line-height:1.2}
+
+/* LESSON CARDS */
+.lesson-card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);
+  border-radius:16px;padding:32px 24px;position:relative;overflow:hidden;transition:all .5s}
+.lesson-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  opacity:0;transition:opacity .4s}
+.lesson-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,.2);
+  box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.lesson-card:hover::before{opacity:1}
+.lesson-card h3{font-family:var(--font-display);font-size:1.15rem;font-weight:700;
+  margin-bottom:12px;color:var(--white)}
+.lesson-card p{color:var(--gray);font-size:.88rem;line-height:1.7}
+.lesson-card .lesson-icon{width:52px;height:52px;border-radius:14px;display:flex;
+  align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:16px}
+
+/* KEY INSIGHT BOX */
+.insight-box{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(201,168,76,.02));
+  border:1px solid rgba(201,168,76,.25);border-left:4px solid var(--gold);
+  border-radius:0 14px 14px 0;padding:24px;margin:28px 0;position:relative}
+.insight-box::before{content:'💡';position:absolute;top:-12px;left:16px;font-size:1.3rem;
+  background:var(--navy);padding:0 8px}
+.insight-box p{color:var(--gray-light);font-size:.9rem;line-height:1.75}
+.insight-box strong{color:var(--white)}
+.insight-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--gold);margin-bottom:8px;display:block}
+
+/* STEP BY STEP */
+.step-flow{position:relative;padding-left:32px}
+.step-flow::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--gold),rgba(201,168,76,.1))}
+.step{position:relative;padding-bottom:32px}
+.step:last-child{padding-bottom:0}
+.step-dot{position:absolute;left:-25px;top:4px;width:14px;height:14px;border-radius:50%;
+  background:var(--gold);border:3px solid var(--navy);z-index:1}
+.step-dot::after{content:'';position:absolute;inset:-6px;border-radius:50%;
+  border:2px solid rgba(201,168,76,.2);animation:pulse-ring 2s infinite}
+.step h4{font-family:var(--font-display);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:6px}
+.step p{color:var(--gray);font-size:.85rem;line-height:1.7}
+
+/* COMPARISON TABLE */
+.compare-table{width:100%;border-collapse:separate;border-spacing:0;margin-top:24px;
+  border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.compare-table th{padding:14px 16px;font-size:.7rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;text-align:left}
+.compare-table th:first-child{background:var(--navy-mid);color:var(--gray)}
+.compare-table th:nth-child(2){background:rgba(239,68,68,.08);color:var(--red)}
+.compare-table th:nth-child(3){background:rgba(201,168,76,.08);color:var(--gold)}
+.compare-table td{padding:12px 16px;font-size:.82rem;border-top:1px solid rgba(255,255,255,.04);
+  background:var(--navy-mid);color:var(--gray-light)}
+.compare-table td:first-child{font-weight:600;color:var(--white)}
+.compare-table tr:hover td{background:rgba(201,168,76,.03)}
+
+/* STATS ROW */
+.stats-row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:32px 0}
+.stat{text-align:center;padding:20px 12px;background:var(--navy-mid);border-radius:14px;
+  border:1px solid rgba(255,255,255,.05);transition:all .4s}
+.stat:hover{border-color:rgba(201,168,76,.2);transform:translateY(-3px)}
 .stat-num{font-family:var(--font-display);font-size:clamp(1.6rem,3vw,2.5rem);
-  font-weight:900;color:var(--gold);line-height:1}
-.stat-label{font-size:.65rem;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
-
-/* DISRUPTION */
-.disruption{background:linear-gradient(135deg,rgba(239,68,68,.08),rgba(201,168,76,.06));
-  border:1px solid rgba(239,68,68,.2);border-radius:16px;padding:36px 24px;text-align:center;
-  position:relative;overflow:hidden}
-.disruption::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
-  background:radial-gradient(circle at center,rgba(239,68,68,.03),transparent 60%);
-  animation:disruption-glow 8s infinite}
-@keyframes disruption-glow{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-.disruption h2{font-family:var(--font-display);font-size:clamp(1.4rem,3.5vw,2.4rem);
-  font-weight:700;margin-bottom:16px;color:var(--white);position:relative}
-.disruption h2 span{color:var(--red)}
-.disruption p{color:var(--gray-light);max-width:720px;margin:0 auto;font-size:clamp(.9rem,1.5vw,1.05rem);line-height:1.75;position:relative}
-.disruption p strong{color:var(--white)}
-
-/* POWER CARDS */
-.powers-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:36px}
-.power-card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);
-  border-radius:14px;padding:28px 24px;transition:all .4s;position:relative;overflow:hidden}
-.power-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity .4s}
-.power-card:hover{transform:translateY(-4px);border-color:rgba(201,168,76,.25);
-  box-shadow:0 16px 32px rgba(0,0,0,.3)}
-.power-card:hover::before{opacity:1}
-.power-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;
-  justify-content:center;font-size:1.3rem;margin-bottom:16px}
-.power-card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:700;
-  margin-bottom:8px;color:var(--white)}
-.power-card p{color:var(--gray);font-size:.88rem;line-height:1.65}
-.power-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-.power-tag{display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;
-  font-weight:600;letter-spacing:.05em;text-transform:uppercase}
-
-/* DATA CARDS */
-.data-highlight{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:36px}
-.data-card{background:linear-gradient(135deg,var(--navy-mid),var(--navy-light));
-  border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:28px 20px;text-align:center;
-  transition:all .4s}
-.data-card:hover{transform:translateY(-3px);border-color:rgba(201,168,76,.15)}
-.data-card .big-num{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3.2rem);
-  font-weight:900;line-height:1;margin-bottom:8px}
-.data-card .big-label{font-size:.8rem;color:var(--gray);line-height:1.5}
-.data-card .big-label strong{color:var(--white)}
-
-/* COMPARISON */
-.comparison{display:grid;grid-template-columns:1fr;gap:16px;align-items:stretch;margin-top:36px}
-.comp-col{background:var(--navy-mid);border-radius:14px;padding:28px 24px;
-  border:1px solid rgba(255,255,255,.06)}
-.comp-col.old{border-color:rgba(239,68,68,.2);background:linear-gradient(135deg,var(--navy-mid),rgba(239,68,68,.03))}
-.comp-col.new{border-color:rgba(201,168,76,.2);background:linear-gradient(135deg,var(--navy-mid),rgba(201,168,76,.03))}
-.comp-title{font-family:var(--font-display);font-size:1.1rem;font-weight:700;
-  margin-bottom:16px;display:flex;align-items:center;gap:10px}
-.comp-vs{font-family:var(--font-display);font-size:1.3rem;font-weight:900;
-  color:var(--gold);text-align:center;padding:8px 0}
-.comp-item{display:flex;align-items:flex-start;gap:10px;padding:8px 0;
-  border-bottom:1px solid rgba(255,255,255,.04);font-size:.85rem;color:var(--gray-light)}
-.comp-item:last-child{border:none}
-.comp-x{color:var(--red);font-weight:700;font-size:1rem;flex-shrink:0}
-.comp-check{color:var(--green);font-weight:700;font-size:1rem;flex-shrink:0}
+  font-weight:900;line-height:1}
+.stat-label{font-size:.65rem;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
 
 /* TEAM GRID */
-.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px}
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:32px}
 .agent-card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);
-  border-radius:14px;padding:24px 16px;text-align:center;transition:all .4s;position:relative;overflow:hidden}
+  border-radius:14px;padding:24px 16px;text-align:center;transition:all .5s;position:relative;overflow:hidden}
 .agent-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
   transition:opacity .4s;opacity:0}
-.agent-card:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(0,0,0,.3)}
+.agent-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
 .agent-card:hover::after{opacity:1}
 .agent-emoji{font-size:2.2rem;margin-bottom:8px;display:block}
 .agent-name{font-family:var(--font-display);font-size:.95rem;font-weight:700;
@@ -160,22 +219,22 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
   font-size:.55rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
   background:var(--gold);color:var(--navy)}
 
-/* SCENARIOS */
-.quote-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:36px}
-.quote-card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);
-  border-radius:14px;padding:28px 24px;position:relative;transition:all .4s}
-.quote-card:hover{border-color:rgba(201,168,76,.15)}
-.quote-card::before{content:'\201C';position:absolute;top:12px;left:20px;
-  font-family:var(--font-display);font-size:3.5rem;color:var(--gold);opacity:.2;line-height:1}
-.quote-text{font-size:.9rem;color:var(--gray-light);line-height:1.75;font-style:italic;
-  margin-bottom:14px;padding-top:6px}
-.quote-text strong{color:var(--white);font-style:normal}
-.quote-author{font-size:.82rem;color:var(--gold);font-weight:600}
+/* SCENARIO CARDS */
+.scenario-card{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);
+  border-radius:14px;padding:28px 24px;position:relative;transition:all .4s;overflow:hidden}
+.scenario-card:hover{border-color:rgba(201,168,76,.15);transform:translateY(-3px)}
+.scenario-card .scenario-time{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;
+  border-radius:100px;font-size:.65rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;margin-bottom:14px}
+.scenario-card p{color:var(--gray-light);font-size:.88rem;line-height:1.75}
+.scenario-card p strong{color:var(--white)}
+.scenario-card .scenario-result{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.06);
+  font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:8px}
 
 /* LIVE SECTION */
 .live-section{text-align:center;padding:80px 0;position:relative}
 .live-section::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(239,68,68,.04),transparent);
+  background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(201,168,76,.06),transparent);
   pointer-events:none}
 .live-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;
   background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:100px;
@@ -183,24 +242,18 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
   text-transform:uppercase;margin-bottom:24px}
 .live-badge::before{content:'';width:10px;height:10px;border-radius:50%;
   background:var(--red);animation:pulse-dot 1.5s infinite;box-shadow:0 0 8px var(--red)}
-.live-section h2{font-family:var(--font-display);font-size:clamp(1.6rem,4.5vw,3.2rem);
-  font-weight:900;line-height:1.15;margin-bottom:20px;position:relative}
-.live-section h2 em{color:var(--gold);font-style:italic}
-.live-details{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:28px 0 36px}
-.live-detail{display:flex;align-items:center;gap:6px;font-size:.9rem;color:var(--gray-light)}
-.live-detail strong{color:var(--white)}
 
-.countdown{display:flex;justify-content:center;gap:10px;margin-bottom:36px}
+.countdown{display:flex;justify-content:center;gap:10px;margin:28px 0}
 .cd-block{background:var(--navy-mid);border:1px solid rgba(201,168,76,.2);
-  border-radius:10px;padding:14px 16px;min-width:68px;text-align:center;
+  border-radius:12px;padding:16px 18px;min-width:68px;text-align:center;
   transition:all .3s}
-.cd-block:hover{border-color:rgba(201,168,76,.4);transform:translateY(-2px)}
+.cd-block:hover{border-color:rgba(201,168,76,.4);transform:translateY(-3px)}
 .cd-num{font-family:var(--font-display);font-size:clamp(1.5rem,3.5vw,2.2rem);
   font-weight:900;color:var(--gold);line-height:1}
-.cd-label{font-size:.6rem;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+.cd-label{font-size:.6rem;color:var(--gray);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
 
 /* AGENDA */
-.agenda-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:36px}
+.agenda-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:32px}
 .agenda-item{background:var(--navy-mid);border:1px solid rgba(255,255,255,.06);
   border-radius:14px;padding:24px;position:relative;overflow:hidden;transition:all .4s}
 .agenda-item:hover{border-color:rgba(201,168,76,.2);transform:translateY(-3px)}
@@ -217,31 +270,29 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
   font-weight:900;line-height:1.2;margin-bottom:14px}
 .section-header p{color:var(--gray);max-width:600px;margin:0 auto;font-size:clamp(.9rem,1.5vw,1.02rem)}
 
-/* SURVEY FORM */
+/* SURVEY */
 .survey-section{padding:80px 0;position:relative}
 .survey-wrap{background:linear-gradient(135deg,rgba(201,168,76,.08),rgba(59,130,246,.05));
   border:1px solid rgba(201,168,76,.25);border-radius:20px;padding:40px 24px;text-align:center;
   max-width:700px;margin:0 auto;position:relative;overflow:hidden}
 .survey-wrap::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
   background:radial-gradient(circle at center,rgba(201,168,76,.04),transparent 60%);pointer-events:none}
-.survey-wrap h2{font-family:var(--font-display);font-size:clamp(1.4rem,3.5vw,2rem);
+.survey-wrap h2{font-family:var(--font-display);font-size:clamp(1.3rem,3.5vw,1.8rem);
   font-weight:900;margin-bottom:12px;color:var(--white);position:relative}
 .survey-wrap h2 em{color:var(--gold);font-style:italic}
-.survey-wrap>p{color:var(--gray-light);font-size:clamp(.88rem,1.4vw,1rem);margin-bottom:28px;
+.survey-wrap>p{color:var(--gray-light);font-size:clamp(.85rem,1.4vw,.95rem);margin-bottom:24px;
   line-height:1.7;position:relative;max-width:560px;margin-left:auto;margin-right:auto}
-.survey-textarea{width:100%;min-height:120px;padding:16px;border:1px solid rgba(201,168,76,.3);
+.survey-textarea{width:100%;min-height:110px;padding:16px;border:1px solid rgba(201,168,76,.3);
   border-radius:12px;background:rgba(10,15,30,.6);color:var(--white);font-family:var(--font-body);
-  font-size:.95rem;line-height:1.6;resize:vertical;outline:none;transition:border-color .3s;
-  position:relative}
+  font-size:.92rem;line-height:1.6;resize:vertical;outline:none;transition:border-color .3s;position:relative}
 .survey-textarea::placeholder{color:var(--gray)}
 .survey-textarea:focus{border-color:var(--gold)}
 .survey-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  margin-top:20px;padding:14px 36px;background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  margin-top:18px;padding:14px 36px;background:linear-gradient(135deg,var(--gold),var(--gold-light));
   color:var(--navy);font-family:var(--font-body);font-size:.95rem;font-weight:700;
   border:none;border-radius:100px;cursor:pointer;transition:all .3s;
   letter-spacing:.03em;min-height:48px;min-width:200px;position:relative}
 .survey-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
-.survey-btn:active{transform:translateY(0)}
 .survey-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
 .survey-btn .spinner{display:none;width:18px;height:18px;border:2px solid transparent;
   border-top-color:var(--navy);border-radius:50%;animation:spin .6s linear infinite}
@@ -258,6 +309,26 @@ nav .container{display:flex;align-items:center;justify-content:space-between;gap
 .survey-error{color:var(--red);font-size:.82rem;margin-top:8px;display:none}
 .survey-error.show{display:block}
 
+/* TICKER */
+.ticker-wrap{overflow:hidden;padding:14px 0;border-top:1px solid rgba(255,255,255,.04);
+  border-bottom:1px solid rgba(255,255,255,.04)}
+.ticker{display:flex;gap:36px;animation:ticker-scroll 35s linear infinite;white-space:nowrap}
+.ticker span{font-size:.72rem;color:var(--gray);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.ticker span strong{color:var(--gold)}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* FOMO BANNER */
+.fomo-banner{background:linear-gradient(135deg,rgba(239,68,68,.12),rgba(239,68,68,.04));
+  border:1px solid rgba(239,68,68,.25);border-radius:14px;padding:24px;text-align:center;
+  margin:32px 0;position:relative;overflow:hidden}
+.fomo-banner::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 50%,rgba(239,68,68,.05),transparent 70%);
+  animation:disruption-glow 6s infinite;pointer-events:none}
+@keyframes disruption-glow{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.fomo-banner p{color:var(--white);font-size:clamp(.9rem,1.5vw,1.05rem);font-weight:600;
+  position:relative}
+.fomo-banner p span{color:var(--red)}
+
 footer{border-top:1px solid rgba(201,168,76,.1);padding:40px 0;text-align:center}
 footer p{color:var(--gray);font-size:.82rem}
 footer .logo-footer{height:48px;opacity:.85;margin-bottom:16px;filter:drop-shadow(0 0 8px rgba(201,168,76,.2))}
@@ -268,323 +339,489 @@ footer .logo-footer{height:48px;opacity:.85;margin-bottom:16px;filter:drop-shado
 .particle{position:absolute;width:2px;height:2px;background:var(--gold);border-radius:50%;opacity:0}
 @keyframes float-particle{
   0%{opacity:0;transform:translateY(100vh)}
-  10%{opacity:.3}
-  90%{opacity:.3}
+  10%{opacity:.3}90%{opacity:.3}
   100%{opacity:0;transform:translateY(-100px)}
 }
-
-/* SOCIAL PROOF TICKER */
-.ticker-wrap{overflow:hidden;padding:14px 0;border-top:1px solid rgba(255,255,255,.04);
-  border-bottom:1px solid rgba(255,255,255,.04);margin:0}
-.ticker{display:flex;gap:36px;animation:ticker-scroll 30s linear infinite;white-space:nowrap}
-.ticker span{font-size:.72rem;color:var(--gray);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
-.ticker span strong{color:var(--gold)}
-@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ===== TABLET ===== */
 @media(min-width:640px){
   .container{padding:0 32px}
   section{padding:80px 0}
   .stats-row{grid-template-columns:repeat(4,1fr);gap:16px}
-  .powers-grid{grid-template-columns:repeat(2,1fr);gap:20px}
-  .data-highlight{grid-template-columns:repeat(4,1fr)}
-  .comparison{grid-template-columns:1fr auto 1fr;gap:20px}
-  .comp-vs{padding:0;align-self:center}
   .team-grid{grid-template-columns:repeat(2,1fr);gap:16px}
-  .quote-grid{grid-template-columns:repeat(2,1fr)}
   .agenda-grid{grid-template-columns:repeat(2,1fr)}
   .nav-logo{height:50px}
-  .nav-live{padding:10px 20px;font-size:.75rem}
   .survey-wrap{padding:48px 40px}
+  .compare-table{font-size:.88rem}
 }
 
 /* ===== DESKTOP ===== */
 @media(min-width:1024px){
   section{padding:100px 0}
   .stats-row{gap:24px}
-  .powers-grid{grid-template-columns:repeat(3,1fr);gap:24px}
   .team-grid{grid-template-columns:repeat(4,1fr);gap:20px}
-  .quote-grid{grid-template-columns:repeat(3,1fr)}
   .agenda-grid{grid-template-columns:repeat(2,1fr);gap:20px}
   .nav-logo{height:60px}
   .live-section{padding:120px 0}
-  .disruption{padding:56px 48px}
   .survey-wrap{padding:56px 48px}
 }
 </style>
 </head>
 <body>
 
+<!-- Reading progress bar -->
+<div class="reading-progress" id="readingProgress"></div>
+
 <nav>
   <div class="container">
     <div class="nav-logo-wrap">
       <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663288181369/UDVtIRJwcliKGSZh.webp" alt="Focus Consulting Group" class="nav-logo">
     </div>
-    <span class="nav-live">Directo 24 Marzo &mdash; 19:00h</span>
+    <span class="nav-live">Gu&iacute;a Gratuita &mdash; 24 Marzo</span>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ==================== HERO ==================== -->
 <section class="hero">
   <div class="container">
     <div class="reveal">
-      <div class="hero-pre">&#9679; Informe Exclusivo &mdash; Focus Consulting Group</div>
-      <h1>Pierdes Clientes Cada D&iacute;a<em>Mientras Tu Competencia Duerme Tranquila</em></h1>
-      <p class="hero-sub">Hay empresas de tu sector con <strong>empleados IA que trabajan a las 3 de la ma&ntilde;ana</strong>: contestan llamadas, responden emails, esp&iacute;an anuncios, crean contenido viral y cierran ventas. <strong>Todo sin que su due&ntilde;o levante un dedo.</strong></p>
-      <p class="hero-urgency">&#9888;&#65039; El 72% de las empresas ya est&aacute;n adoptando esto en 2026. &iquest;Y t&uacute;?</p>
+      <div class="hero-badge">
+        <span class="badge-icon">&#128218;</span> Gu&iacute;a Formativa Gratuita &mdash; Focus Consulting Group
+      </div>
+      <h1>Agentes IA para tu Negocio:<br><em>Todo Lo Que Necesitas Saber</em></h1>
+      <p class="hero-learn">En los pr&oacute;ximos <strong>5 minutos de lectura</strong> vas a entender algo que el <strong>90% de empresarios a&uacute;n no sabe</strong> y que est&aacute; cambiando las reglas del juego en 2026.</p>
     </div>
-    <div class="stats-row reveal">
-      <div class="stat"><div class="stat-num">8</div><div class="stat-label">Agentes IA Especializados</div></div>
-      <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Trabajando Sin Parar</div></div>
-      <div class="stat"><div class="stat-num">14x</div><div class="stat-label">M&aacute;s R&aacute;pido que un Humano</div></div>
-      <div class="stat"><div class="stat-num">0</div><div class="stat-label">Leads Perdidos</div></div>
+
+    <div class="learn-list stagger">
+      <div class="learn-item reveal" style="--i:0">
+        <span class="check">&#10003;</span>
+        <span><strong>Qu&eacute; es un agente IA</strong> (y por qu&eacute; no es lo mismo que ChatGPT)</span>
+      </div>
+      <div class="learn-item reveal" style="--i:1">
+        <span class="check">&#10003;</span>
+        <span><strong>C&oacute;mo funcionan</strong> paso a paso, explicado con ejemplos reales</span>
+      </div>
+      <div class="learn-item reveal" style="--i:2">
+        <span class="check">&#10003;</span>
+        <span><strong>8 tareas concretas</strong> que un agente puede hacer por tu negocio hoy</span>
+      </div>
+      <div class="learn-item reveal" style="--i:3">
+        <span class="check">&#10003;</span>
+        <span><strong>Casos reales</strong>: qu&eacute; est&aacute; pasando ahora mismo en empresas como la tuya</span>
+      </div>
+      <div class="learn-item reveal" style="--i:4">
+        <span class="check">&#10003;</span>
+        <span><strong>Demostraci&oacute;n en directo</strong> el 24 de marzo donde lo ver&aacute;s funcionar</span>
+      </div>
+    </div>
+
+    <div class="hero-cta-wrap reveal">
+      <a href="#capitulo1" class="hero-cta">Empezar a Aprender &#8595;</a>
+      <span class="hero-cta-sub">Lectura de 5 min &mdash; 100% gratuita</span>
     </div>
   </div>
 </section>
 
-<!-- SOCIAL PROOF TICKER -->
+<!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker">
-    <span>&#128200; <strong>+340%</strong> aumento en captaci&oacute;n de leads</span>
-    <span>&#128373;&#65039; <strong>47 anuncios</strong> de competencia analizados en 10 min</span>
-    <span>&#128241; <strong>0 llamadas</strong> perdidas con asistente IA 24/7</span>
-    <span>&#128231; <strong>Emails</strong> respondidos autom&aacute;ticamente en segundos</span>
-    <span>&#127909; <strong>Virales</strong> de tu sector encontrados cada d&iacute;a</span>
-    <span>&#128176; <strong>Embudos</strong> de venta creados en minutos</span>
-    <span>&#129421; <strong>Reportes</strong> ejecutivos generados autom&aacute;ticamente</span>
-    <span>&#128203; <strong>Facturas</strong> creadas y enviadas sin intervenci&oacute;n</span>
-    <span>&#128200; <strong>+340%</strong> aumento en captaci&oacute;n de leads</span>
-    <span>&#128373;&#65039; <strong>47 anuncios</strong> de competencia analizados en 10 min</span>
-    <span>&#128241; <strong>0 llamadas</strong> perdidas con asistente IA 24/7</span>
-    <span>&#128231; <strong>Emails</strong> respondidos autom&aacute;ticamente en segundos</span>
-    <span>&#127909; <strong>Virales</strong> de tu sector encontrados cada d&iacute;a</span>
-    <span>&#128176; <strong>Embudos</strong> de venta creados en minutos</span>
-    <span>&#129421; <strong>Reportes</strong> ejecutivos generados autom&aacute;ticamente</span>
-    <span>&#128203; <strong>Facturas</strong> creadas y enviadas sin intervenci&oacute;n</span>
+    <span>&#128218; <strong>Gu&iacute;a formativa</strong> sobre agentes IA</span>
+    <span>&#129302; <strong>8 agentes</strong> especializados explicados</span>
+    <span>&#128200; <strong>Datos reales</strong> de impacto en negocios</span>
+    <span>&#127909; <strong>Demostraci&oacute;n en directo</strong> 24 de Marzo</span>
+    <span>&#128161; <strong>Casos pr&aacute;cticos</strong> paso a paso</span>
+    <span>&#9989; <strong>Aplicable</strong> a cualquier sector</span>
+    <span>&#128218; <strong>Gu&iacute;a formativa</strong> sobre agentes IA</span>
+    <span>&#129302; <strong>8 agentes</strong> especializados explicados</span>
+    <span>&#128200; <strong>Datos reales</strong> de impacto en negocios</span>
+    <span>&#127909; <strong>Demostraci&oacute;n en directo</strong> 24 de Marzo</span>
+    <span>&#128161; <strong>Casos pr&aacute;cticos</strong> paso a paso</span>
+    <span>&#9989; <strong>Aplicable</strong> a cualquier sector</span>
   </div>
 </div>
 
-<!-- DISRUPTION -->
-<section>
+<!-- ==================== CAPÍTULO 1: QUÉ ES UN AGENTE IA ==================== -->
+<section id="capitulo1">
   <div class="container">
-    <div class="disruption reveal-scale">
-      <h2>Cada D&iacute;a Sin Esto,<br><span>Tu Competencia Te Saca M&aacute;s Ventaja</span></h2>
-      <p>No es ciencia ficci&oacute;n. <strong>Ahora mismo</strong>, empresas de tu sector tienen agentes IA que esp&iacute;an los anuncios de su competencia, encuentran los contenidos m&aacute;s virales, crean embudos de venta, contestan llamadas a las 3 de la ma&ntilde;ana, responden emails en segundos y generan facturas autom&aacute;ticamente. <strong>La pregunta no es si deber&iacute;as hacerlo. La pregunta es cu&aacute;ntas ventas has perdido ya por no tenerlo.</strong></p>
+    <div class="chapter reveal">
+      <div class="chapter-num" style="background:var(--gold);color:var(--navy)">1</div>
+      <div>
+        <div class="chapter-label" style="color:var(--gold)">Cap&iacute;tulo 1</div>
+        <div class="chapter-title">Qu&eacute; Es un Agente IA (y por qu&eacute; cambia todo)</div>
+      </div>
+    </div>
+
+    <div class="lesson-card reveal">
+      <p style="font-size:clamp(.92rem,1.5vw,1.05rem);color:var(--gray-light);line-height:1.85">
+        Seguramente ya has usado <strong style="color:var(--white)">ChatGPT</strong>. Le haces una pregunta, te responde. Genial. Pero eso es como tener un empleado que solo habla cuando le preguntas y que <strong style="color:var(--white)">se olvida de todo al d&iacute;a siguiente</strong>.
+      </p>
+      <br>
+      <p style="font-size:clamp(.92rem,1.5vw,1.05rem);color:var(--gray-light);line-height:1.85">
+        Un <strong style="color:var(--gold)">agente IA</strong> es algo completamente diferente. Es un programa que:
+      </p>
+    </div>
+
+    <div class="stats-row stagger" style="margin-top:24px">
+      <div class="stat reveal float" style="--i:0;animation-delay:0s">
+        <div class="stat-num" style="color:var(--gold)">&#129504;</div>
+        <div class="stat-label">Piensa y decide solo</div>
+      </div>
+      <div class="stat reveal float" style="--i:1;animation-delay:.5s">
+        <div class="stat-num" style="color:var(--blue)">&#128295;</div>
+        <div class="stat-label">Usa herramientas reales</div>
+      </div>
+      <div class="stat reveal float" style="--i:2;animation-delay:1s">
+        <div class="stat-num" style="color:var(--purple)">&#128200;</div>
+        <div class="stat-label">Aprende y mejora</div>
+      </div>
+      <div class="stat reveal float" style="--i:3;animation-delay:1.5s">
+        <div class="stat-num" style="color:var(--green)">&#9203;</div>
+        <div class="stat-label">Trabaja 24/7 sin parar</div>
+      </div>
+    </div>
+
+    <div class="insight-box reveal">
+      <span class="insight-label">Concepto Clave</span>
+      <p><strong>ChatGPT es un asistente que responde.</strong> Un agente IA es un <strong>empleado digital que ejecuta</strong>. Puede entrar en Meta Ads, buscar anuncios de tu competencia, analizarlos, abrir TikTok, encontrar virales de tu sector, crear un informe y env&iacute;artelo por email. <strong>Todo sin que t&uacute; hagas nada.</strong></p>
+    </div>
+
+    <div class="lesson-card reveal" style="margin-top:20px">
+      <h3>&#128270; Ejemplo Real: C&oacute;mo Funciona Paso a Paso</h3>
+      <div class="step-flow" style="margin-top:20px">
+        <div class="step reveal">
+          <div class="step-dot"></div>
+          <h4>1. Le das una orden</h4>
+          <p>&ldquo;Analiza los anuncios de mis 3 competidores principales en Meta Ads&rdquo;</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-dot"></div>
+          <h4>2. El agente planifica</h4>
+          <p>Decide qu&eacute; herramientas necesita: acceso a Meta Ad Library, an&aacute;lisis de copys, comparaci&oacute;n de creativos...</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-dot"></div>
+          <h4>3. Ejecuta aut&oacute;nomamente</h4>
+          <p>Entra en Meta Ads, busca los anuncios activos, los descarga, analiza patrones, compara estrategias.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-dot"></div>
+          <h4>4. Te entrega el resultado</h4>
+          <p>Recibes un informe completo con: qu&eacute; anuncios est&aacute;n corriendo, qu&eacute; copys usan, qu&eacute; creativos funcionan mejor y <strong style="color:var(--gold)">qu&eacute; deber&iacute;as hacer t&uacute; diferente</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="fomo-banner reveal">
+      <p>&#9888;&#65039; <span>El 72% de las empresas ya est&aacute;n implementando agentes IA en 2026.</span> Las que no lo hagan, se quedar&aacute;n atr&aacute;s. No es una predicci&oacute;n &mdash; est&aacute; pasando ahora.</p>
     </div>
   </div>
 </section>
 
-<!-- WHAT AGENTS CAN DO -->
+<!-- ==================== CAPÍTULO 2: 8 TAREAS CONCRETAS ==================== -->
 <section>
   <div class="container">
-    <div class="section-header reveal">
-      <div class="section-pre" style="color:var(--gold);background:var(--gold-dim)">Capacidades Reales</div>
-      <h2>8 Empleados IA. 8 Superpoderes.<br>Cero Excusas.</h2>
-      <p>Esto no es teor&iacute;a. Es lo que hacen ahora mismo agentes reales para negocios reales.</p>
+    <div class="chapter reveal">
+      <div class="chapter-num" style="background:var(--blue)">2</div>
+      <div>
+        <div class="chapter-label" style="color:var(--blue)">Cap&iacute;tulo 2</div>
+        <div class="chapter-title">8 Tareas que un Agente IA Puede Hacer por Tu Negocio</div>
+      </div>
     </div>
-    <div class="powers-grid">
-      <div class="power-card reveal-left">
-        <div class="power-icon" style="background:rgba(239,68,68,.1)">&#128373;&#65039;</div>
-        <h3>Espiar Anuncios de tu Competencia</h3>
+
+    <p class="reveal" style="color:var(--gray-light);font-size:clamp(.9rem,1.5vw,1.02rem);line-height:1.8;margin-bottom:28px">
+      Esto no es teor&iacute;a. Son <strong style="color:var(--white)">tareas reales</strong> que agentes IA est&aacute;n ejecutando ahora mismo para negocios reales. Cada una de estas tareas le costar&iacute;a a un empleado humano entre 2 y 8 horas. Un agente las hace en minutos.
+    </p>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:16px" class="stagger">
+      <div class="lesson-card reveal" style="--i:0">
+        <div class="lesson-icon" style="background:rgba(239,68,68,.1)">&#128373;&#65039;</div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+          <h3>1. Espiar Anuncios de tu Competencia</h3>
+        </div>
         <p>Entra en Meta Ads, busca todos los anuncios activos de tus competidores, analiza copys, creativos y estrategias. Te dice exactamente qu&eacute; est&aacute;n haciendo y qu&eacute; deber&iacute;as hacer t&uacute; diferente.</p>
-        <div class="power-tags">
-          <span class="power-tag" style="color:var(--red);background:rgba(239,68,68,.1)">Meta Ads</span>
-          <span class="power-tag" style="color:var(--red);background:rgba(239,68,68,.1)">An&aacute;lisis IA</span>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--red);background:rgba(239,68,68,.1)">Meta Ads</span>
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--red);background:rgba(239,68,68,.1)">An&aacute;lisis IA</span>
         </div>
       </div>
-      <div class="power-card reveal">
-        <div class="power-icon" style="background:rgba(168,85,247,.1)">&#128200;</div>
-        <h3>Encontrar Virales de tu Sector</h3>
+
+      <div class="lesson-card reveal" style="--i:1">
+        <div class="lesson-icon" style="background:rgba(168,85,247,.1)">&#128200;</div>
+        <h3>2. Encontrar Virales de tu Sector</h3>
         <p>Busca en TikTok los tutoriales y v&iacute;deos con m&aacute;s visualizaciones de tu nicho. Analiza patrones: qu&eacute; hooks funcionan, qu&eacute; duraci&oacute;n es ideal, qu&eacute; formato genera m&aacute;s engagement.</p>
-        <div class="power-tags">
-          <span class="power-tag" style="color:var(--purple);background:rgba(168,85,247,.1)">TikTok</span>
-          <span class="power-tag" style="color:var(--purple);background:rgba(168,85,247,.1)">Viralizaci&oacute;n</span>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--purple);background:rgba(168,85,247,.1)">TikTok</span>
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--purple);background:rgba(168,85,247,.1)">Viralizaci&oacute;n</span>
         </div>
       </div>
-      <div class="power-card reveal-right">
-        <div class="power-icon" style="background:rgba(59,130,246,.1)">&#127760;</div>
-        <h3>Crear Embudos de Venta en Minutos</h3>
+
+      <div class="lesson-card reveal" style="--i:2">
+        <div class="lesson-icon" style="background:rgba(59,130,246,.1)">&#127760;</div>
+        <h3>3. Crear Embudos de Venta en Minutos</h3>
         <p>Toma un template profesional, lo personaliza para tu sector, cambia textos, colores y CTAs. Te entrega un embudo listo para captar leads. Lo que a un dise&ntilde;ador le lleva d&iacute;as, en minutos.</p>
-        <div class="power-tags">
-          <span class="power-tag" style="color:var(--blue);background:rgba(59,130,246,.1)">Landing Pages</span>
-          <span class="power-tag" style="color:var(--blue);background:rgba(59,130,246,.1)">Embudos</span>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--blue);background:rgba(59,130,246,.1)">Landing Pages</span>
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--blue);background:rgba(59,130,246,.1)">Embudos</span>
         </div>
       </div>
-      <div class="power-card reveal-left">
-        <div class="power-icon" style="background:rgba(6,182,212,.1)">&#128222;</div>
-        <h3>Contestar Llamadas 24/7</h3>
-        <p>Un asistente IA que responde las llamadas de tu negocio a cualquier hora. Califica leads, agenda citas, responde preguntas frecuentes y nunca pierde una llamada. <strong>Ni a las 3 de la ma&ntilde;ana.</strong></p>
-        <div class="power-tags">
-          <span class="power-tag" style="color:var(--cyan);background:rgba(6,182,212,.1)">Llamadas</span>
-          <span class="power-tag" style="color:var(--cyan);background:rgba(6,182,212,.1)">24/7</span>
+
+      <div class="lesson-card reveal" style="--i:3">
+        <div class="lesson-icon" style="background:rgba(6,182,212,.1)">&#128222;</div>
+        <h3>4. Contestar Llamadas 24/7</h3>
+        <p>Un asistente IA que responde las llamadas de tu negocio a cualquier hora. Califica leads, agenda citas, responde preguntas frecuentes. <strong style="color:var(--white)">Ni a las 3 de la ma&ntilde;ana pierde una llamada.</strong></p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--cyan);background:rgba(6,182,212,.1)">Llamadas</span>
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--cyan);background:rgba(6,182,212,.1)">24/7</span>
         </div>
       </div>
-      <div class="power-card reveal">
-        <div class="power-icon" style="background:rgba(236,72,153,.1)">&#128231;</div>
-        <h3>Organizar y Responder tus Emails</h3>
-        <p>Lee tu bandeja de entrada, clasifica por prioridad, redacta respuestas profesionales seg&uacute;n tus instrucciones y las env&iacute;a. T&uacute; solo revisas lo importante. <strong>Adi&oacute;s a 2 horas diarias de email.</strong></p>
-        <div class="power-tags">
-          <span class="power-tag" style="color:var(--pink);background:rgba(236,72,153,.1)">Gmail</span>
-          <span class="power-tag" style="color:var(--pink);background:rgba(236,72,153,.1)">Automatizaci&oacute;n</span>
+
+      <div class="lesson-card reveal" style="--i:4">
+        <div class="lesson-icon" style="background:rgba(236,72,153,.1)">&#128231;</div>
+        <h3>5. Organizar y Responder tus Emails</h3>
+        <p>Lee tu bandeja de entrada, clasifica por prioridad, redacta respuestas profesionales y las env&iacute;a. <strong style="color:var(--white)">Adi&oacute;s a 2 horas diarias de email.</strong></p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--pink);background:rgba(236,72,153,.1)">Gmail</span>
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--pink);background:rgba(236,72,153,.1)">Automatizaci&oacute;n</span>
         </div>
       </div>
-      <div class="power-card reveal-right">
-        <div class="power-icon" style="background:rgba(20,184,166,.1)">&#128203;</div>
-        <h3>Crear y Enviar Facturas</h3>
-        <p>Genera facturas profesionales autom&aacute;ticamente con los datos de tus clientes, las env&iacute;a por email y lleva el control de pagos. <strong>Cero errores, cero olvidos.</strong></p>
-        <div class="power-tags">
-          <span class="power-tag" style="color:var(--teal);background:rgba(20,184,166,.1)">Facturaci&oacute;n</span>
-          <span class="power-tag" style="color:var(--teal);background:rgba(20,184,166,.1)">Autom&aacute;tico</span>
+
+      <div class="lesson-card reveal" style="--i:5">
+        <div class="lesson-icon" style="background:rgba(20,184,166,.1)">&#128203;</div>
+        <h3>6. Crear y Enviar Facturas</h3>
+        <p>Genera facturas profesionales autom&aacute;ticamente, las env&iacute;a por email y lleva el control de pagos. <strong style="color:var(--white)">Cero errores, cero olvidos.</strong></p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--teal);background:rgba(20,184,166,.1)">Facturaci&oacute;n</span>
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--teal);background:rgba(20,184,166,.1)">Autom&aacute;tico</span>
         </div>
       </div>
-      <div class="power-card reveal-left">
-        <div class="power-icon" style="background:rgba(34,197,94,.1)">&#128202;</div>
-        <h3>Reportes Ejecutivos con Datos Reales</h3>
-        <p>Recopila datos de todas las fuentes, los cruza, analiza y genera un reporte ejecutivo completo con gr&aacute;ficos y recomendaciones accionables. Listo para presentar.</p>
-        <div class="power-tags">
-          <span class="power-tag" style="color:var(--green);background:rgba(34,197,94,.1)">Datos</span>
-          <span class="power-tag" style="color:var(--green);background:rgba(34,197,94,.1)">Reportes</span>
+
+      <div class="lesson-card reveal" style="--i:6">
+        <div class="lesson-icon" style="background:rgba(34,197,94,.1)">&#128202;</div>
+        <h3>7. Reportes Ejecutivos con Datos Reales</h3>
+        <p>Recopila datos de todas las fuentes, los cruza, analiza y genera un reporte ejecutivo completo con gr&aacute;ficos y recomendaciones accionables.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--green);background:rgba(34,197,94,.1)">Datos</span>
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--green);background:rgba(34,197,94,.1)">Reportes</span>
         </div>
       </div>
-      <div class="power-card reveal">
-        <div class="power-icon" style="background:var(--gold-dim)">&#128081;</div>
-        <h3>Un Director que Orquesta Todo</h3>
+
+      <div class="lesson-card reveal glow-box" style="--i:7;border-color:rgba(201,168,76,.25)">
+        <div class="lesson-icon" style="background:var(--gold-dim)">&#128081;</div>
+        <h3>8. Un Director que Orquesta Todo</h3>
         <p>Le dices un sector y un director IA distribuye tareas a los 8 agentes en paralelo. En 10 minutos tienes: anuncios de competencia, virales, embudo creado, emails gestionados y reporte completo.</p>
-        <div class="power-tags">
-          <span class="power-tag" style="color:var(--gold);background:var(--gold-dim)">Director IA</span>
-          <span class="power-tag" style="color:var(--gold);background:var(--gold-dim)">Orquestaci&oacute;n</span>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:14px">
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--gold);background:var(--gold-dim)">Director IA</span>
+          <span style="display:inline-block;padding:3px 10px;border-radius:100px;font-size:.65rem;font-weight:600;color:var(--gold);background:var(--gold-dim)">Orquestaci&oacute;n</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- DATA IMPACT -->
-<section>
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-pre" style="color:var(--green);background:rgba(34,197,94,.1)">Los N&uacute;meros</div>
-      <h2>Datos que Tu Competencia<br>No Quiere que Veas</h2>
-    </div>
-    <div class="data-highlight">
-      <div class="data-card reveal-left">
-        <div class="big-num" style="color:var(--gold)">7.800&euro;</div>
-        <div class="big-label">Lo que cuesta un equipo de <strong>4 empleados</strong> al mes haciendo lo mismo</div>
-      </div>
-      <div class="data-card reveal">
-        <div class="big-num" style="color:var(--green)">10 min</div>
-        <div class="big-label">Para un <strong>an&aacute;lisis completo</strong> que a un equipo le lleva <strong>2 semanas</strong></div>
-      </div>
-      <div class="data-card reveal-right">
-        <div class="big-num" style="color:var(--red)">0</div>
-        <div class="big-label"><strong>Llamadas perdidas</strong>. Cero leads olvidados. <strong>Cero excusas</strong></div>
-      </div>
-      <div class="data-card reveal">
-        <div class="big-num" style="color:var(--purple)">&infin;</div>
-        <div class="big-label">El agente <strong>mejora con cada tarea</strong>. Cuanto m&aacute;s lo usas, <strong>m&aacute;s inteligente</strong></div>
-      </div>
+    <div class="insight-box reveal" style="margin-top:32px">
+      <span class="insight-label">Dato Importante</span>
+      <p>Un equipo de <strong>4 empleados humanos</strong> haciendo estas 8 tareas te costar&iacute;a aproximadamente <strong style="color:var(--gold)">7.800&euro;/mes</strong>. Un equipo de agentes IA las hace en minutos, 24/7, y <strong>mejora con cada tarea que ejecuta</strong>.</p>
     </div>
   </div>
 </section>
 
-<!-- COMPARISON -->
+<!-- ==================== CAPÍTULO 3: COMPARATIVA ==================== -->
 <section>
   <div class="container">
-    <div class="section-header reveal">
-      <div class="section-pre" style="color:var(--red);background:rgba(239,68,68,.1)">La Realidad</div>
-      <h2>Tu Negocio Hoy vs. Tu Negocio<br>con un Equipo de Agentes IA</h2>
-    </div>
-    <div class="comparison reveal-scale">
-      <div class="comp-col old">
-        <div class="comp-title"><span style="color:var(--red)">&#10060;</span> Sin Agentes IA</div>
-        <div class="comp-item"><span class="comp-x">&#10007;</span> Espiar a la competencia te lleva horas de trabajo manual</div>
-        <div class="comp-item"><span class="comp-x">&#10007;</span> No sabes qu&eacute; contenido viral funciona en tu sector</div>
-        <div class="comp-item"><span class="comp-x">&#10007;</span> Crear un embudo te cuesta semanas y miles de euros</div>
-        <div class="comp-item"><span class="comp-x">&#10007;</span> Pierdes llamadas fuera de horario = pierdes clientes</div>
-        <div class="comp-item"><span class="comp-x">&#10007;</span> Pasas 2 horas al d&iacute;a respondiendo emails</div>
-        <div class="comp-item"><span class="comp-x">&#10007;</span> Las facturas se retrasan y pierdes cobros</div>
-        <div class="comp-item"><span class="comp-x">&#10007;</span> Tus reportes son manuales e incompletos</div>
+    <div class="chapter reveal">
+      <div class="chapter-num" style="background:var(--red)">3</div>
+      <div>
+        <div class="chapter-label" style="color:var(--red)">Cap&iacute;tulo 3</div>
+        <div class="chapter-title">La Diferencia Real: Con y Sin Agentes IA</div>
       </div>
-      <div class="comp-vs">VS</div>
-      <div class="comp-col new">
-        <div class="comp-title"><span style="color:var(--green)">&#10022;</span> Con 8 Agentes IA</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Un agente esp&iacute;a los anuncios de tu competencia cada d&iacute;a</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Sabes exactamente qu&eacute; tutoriales viralizan en tu nicho</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Un agente crea embudos personalizados en minutos</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Un asistente IA contesta TODAS las llamadas 24/7</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Tus emails se responden autom&aacute;ticamente en segundos</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Facturas creadas y enviadas sin intervenci&oacute;n humana</div>
-        <div class="comp-item"><span class="comp-check">&#10003;</span> Reportes ejecutivos generados con datos cruzados de todo</div>
+    </div>
+
+    <p class="reveal" style="color:var(--gray-light);font-size:clamp(.9rem,1.5vw,1.02rem);line-height:1.8;margin-bottom:24px">
+      Para que lo veas claro, aqu&iacute; tienes una comparativa directa de c&oacute;mo funciona un negocio <strong style="color:var(--white)">con y sin agentes IA</strong>:
+    </p>
+
+    <div class="reveal-scale" style="overflow-x:auto">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Tarea</th>
+            <th>&#10060; Sin Agentes</th>
+            <th>&#10024; Con Agentes IA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Espiar competencia</td>
+            <td style="color:var(--red)">3-4 horas manuales</td>
+            <td style="color:var(--green)">10 minutos autom&aacute;tico</td>
+          </tr>
+          <tr>
+            <td>Encontrar virales</td>
+            <td style="color:var(--red)">No sabes qu&eacute; funciona</td>
+            <td style="color:var(--green)">5 ideas con hooks probados</td>
+          </tr>
+          <tr>
+            <td>Crear embudo</td>
+            <td style="color:var(--red)">Semanas + miles de &euro;</td>
+            <td style="color:var(--green)">Minutos, personalizado</td>
+          </tr>
+          <tr>
+            <td>Llamadas fuera de horario</td>
+            <td style="color:var(--red)">Perdidas = clientes perdidos</td>
+            <td style="color:var(--green)">Contestadas 24/7</td>
+          </tr>
+          <tr>
+            <td>Emails diarios</td>
+            <td style="color:var(--red)">2 horas/d&iacute;a respondiendo</td>
+            <td style="color:var(--green)">Autom&aacute;ticos en segundos</td>
+          </tr>
+          <tr>
+            <td>Facturaci&oacute;n</td>
+            <td style="color:var(--red)">Retrasos y olvidos</td>
+            <td style="color:var(--green)">Cero errores, cero olvidos</td>
+          </tr>
+          <tr>
+            <td>Reportes</td>
+            <td style="color:var(--red)">Manuales e incompletos</td>
+            <td style="color:var(--green)">Autom&aacute;ticos con datos cruzados</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="stats-row stagger" style="margin-top:32px">
+      <div class="stat reveal" style="--i:0">
+        <div class="stat-num counter" style="color:var(--gold)" data-target="7800" data-suffix="&euro;">0</div>
+        <div class="stat-label">Ahorro mensual vs equipo humano</div>
+      </div>
+      <div class="stat reveal" style="--i:1">
+        <div class="stat-num" style="color:var(--green)">10 min</div>
+        <div class="stat-label">An&aacute;lisis completo que lleva 2 semanas</div>
+      </div>
+      <div class="stat reveal" style="--i:2">
+        <div class="stat-num counter" style="color:var(--red)" data-target="0">0</div>
+        <div class="stat-label">Llamadas perdidas. Cero leads olvidados</div>
+      </div>
+      <div class="stat reveal" style="--i:3">
+        <div class="stat-num" style="color:var(--purple)">&infin;</div>
+        <div class="stat-label">Mejora con cada tarea ejecutada</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE TEAM -->
+<!-- ==================== CAPÍTULO 4: CASOS REALES ==================== -->
 <section>
   <div class="container">
-    <div class="section-header reveal">
-      <div class="section-pre" style="color:var(--gold);background:var(--gold-dim)">Tu Equipo IA</div>
-      <h2>8 Agentes. 8 Especialidades.<br>Un Solo Objetivo: Tu Crecimiento.</h2>
-      <p>Cada agente tiene su propia inteligencia, su memoria y sus herramientas. Juntos forman un equipo que no existe en ninguna otra consultor&iacute;a.</p>
+    <div class="chapter reveal">
+      <div class="chapter-num" style="background:var(--purple)">4</div>
+      <div>
+        <div class="chapter-label" style="color:var(--purple)">Cap&iacute;tulo 4</div>
+        <div class="chapter-title">Casos Reales: Esto Est&aacute; Pasando Ahora Mismo</div>
+      </div>
     </div>
-    <div class="team-grid">
-      <div class="agent-card reveal" style="--accent:var(--gold)">
+
+    <p class="reveal" style="color:var(--gray-light);font-size:clamp(.9rem,1.5vw,1.02rem);line-height:1.8;margin-bottom:28px">
+      No son hip&oacute;tesis. Son <strong style="color:var(--white)">escenarios reales</strong> de c&oacute;mo los agentes IA est&aacute;n transformando negocios en diferentes sectores:
+    </p>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:16px" class="stagger">
+      <div class="scenario-card reveal-left" style="--i:0">
+        <div class="scenario-time" style="background:rgba(6,182,212,.1);color:var(--cyan)">&#128336; 3:00 AM</div>
+        <p>Un cliente potencial llama a una cl&iacute;nica est&eacute;tica. El asistente IA <strong>contesta, le explica los tratamientos, califica el lead y le agenda una cita</strong> para ma&ntilde;ana a las 10. Cuando el due&ntilde;o llega a la oficina, ya tiene la cita confirmada.</p>
+        <div class="scenario-result" style="color:var(--green)">&#10003; Resultado: Lead captado que se habr&iacute;a perdido</div>
+      </div>
+
+      <div class="scenario-card reveal-right" style="--i:1">
+        <div class="scenario-time" style="background:rgba(168,85,247,.1);color:var(--purple)">&#128197; Lunes 9:00 AM</div>
+        <p>Un ecommerce de Barcelona recibe un informe autom&aacute;tico: el agente de TikTok encontr&oacute; que los <strong>tutoriales de &ldquo;antes y despu&eacute;s&rdquo; de 45 segundos</strong> son los que m&aacute;s viralizan en su sector. Le da 5 ideas con hooks probados. Su Ad Spy ya analiz&oacute; los 47 anuncios nuevos de sus competidores.</p>
+        <div class="scenario-result" style="color:var(--green)">&#10003; Resultado: Estrategia de contenido basada en datos, no en intuici&oacute;n</div>
+      </div>
+
+      <div class="scenario-card reveal-left" style="--i:2">
+        <div class="scenario-time" style="background:rgba(236,72,153,.1);color:var(--pink)">&#128231; Todo el d&iacute;a</div>
+        <p>Una consultor&iacute;a en Valencia recibe 80 emails al d&iacute;a. Su Mail Manager <strong>los clasifica, responde los rutinarios autom&aacute;ticamente y le deja solo los 5 que realmente necesitan su atenci&oacute;n</strong>. Ha recuperado 2 horas de su d&iacute;a. Cada d&iacute;a.</p>
+        <div class="scenario-result" style="color:var(--green)">&#10003; Resultado: 2 horas libres al d&iacute;a &times; 22 d&iacute;as = 44 horas/mes recuperadas</div>
+      </div>
+    </div>
+
+    <div class="insight-box reveal" style="margin-top:28px">
+      <span class="insight-label">Reflexi&oacute;n</span>
+      <p>&iquest;Cu&aacute;ntas llamadas has perdido fuera de horario? &iquest;Cu&aacute;ntas horas pasas respondiendo emails? &iquest;Cu&aacute;nto tiempo llevas sin analizar qu&eacute; hace tu competencia? <strong>Cada d&iacute;a sin esto es un d&iacute;a que tu competencia te saca m&aacute;s ventaja.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CAPÍTULO 5: EL EQUIPO ==================== -->
+<section>
+  <div class="container">
+    <div class="chapter reveal">
+      <div class="chapter-num" style="background:var(--green)">5</div>
+      <div>
+        <div class="chapter-label" style="color:var(--green)">Cap&iacute;tulo 5</div>
+        <div class="chapter-title">Conoce al Equipo: 8 Agentes Especializados</div>
+      </div>
+    </div>
+
+    <p class="reveal" style="color:var(--gray-light);font-size:clamp(.9rem,1.5vw,1.02rem);line-height:1.8;margin-bottom:28px">
+      Cada agente tiene su propia inteligencia, su memoria y sus herramientas. Juntos forman un equipo que <strong style="color:var(--white)">no existe en ninguna otra consultor&iacute;a</strong>. Y el martes 24 de marzo los vas a ver funcionar en directo.
+    </p>
+
+    <div class="team-grid stagger">
+      <div class="agent-card reveal" style="--i:0">
         <span class="agent-emoji">&#128081;</span>
         <div class="agent-name">Claw</div>
         <div class="agent-role" style="color:var(--gold)">Director</div>
         <div class="agent-desc">Orquesta a todo el equipo. Una orden y los 8 agentes se ponen a trabajar en paralelo.</div>
         <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold)"></div>
       </div>
-      <div class="agent-card reveal" style="--accent:var(--red)">
+      <div class="agent-card reveal" style="--i:1">
         <span class="agent-emoji">&#128373;&#65039;</span>
         <div class="agent-name">Ad Spy</div>
-        <div class="agent-role" style="color:var(--red)">Espionaje Publicitario</div>
+        <div class="agent-role" style="color:var(--red)">Espionaje</div>
         <div class="agent-desc">Esp&iacute;a los anuncios de tu competencia en Meta Ads y analiza sus estrategias.</div>
         <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red)"></div>
       </div>
-      <div class="agent-card reveal" style="--accent:var(--purple)">
+      <div class="agent-card reveal" style="--i:2">
         <span class="agent-emoji">&#128200;</span>
         <div class="agent-name">TikTok Research</div>
         <div class="agent-role" style="color:var(--purple)">Viralizaci&oacute;n</div>
         <div class="agent-desc">Encuentra los tutoriales m&aacute;s virales de tu sector y te dice qu&eacute; contenido crear.</div>
         <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--purple)"></div>
       </div>
-      <div class="agent-card reveal" style="--accent:var(--blue)">
+      <div class="agent-card reveal" style="--i:3">
         <span class="agent-emoji">&#127760;</span>
         <div class="agent-name">Landing Creator</div>
-        <div class="agent-role" style="color:var(--blue)">Embudos de Venta</div>
+        <div class="agent-role" style="color:var(--blue)">Embudos</div>
         <div class="agent-desc">Crea embudos de venta personalizados en minutos con templates profesionales.</div>
         <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--blue)"></div>
       </div>
-      <div class="agent-card reveal" style="--accent:var(--cyan)">
+      <div class="agent-card reveal" style="--i:4">
         <span class="agent-emoji">&#128222;</span>
         <div class="agent-name">Call Assistant</div>
-        <div class="agent-role" style="color:var(--cyan)">Asistente de Llamadas</div>
-        <div class="agent-desc">Contesta las llamadas de tu negocio 24/7. Califica leads y agenda citas.</div>
+        <div class="agent-role" style="color:var(--cyan)">Llamadas 24/7</div>
+        <div class="agent-desc">Contesta las llamadas de tu negocio a cualquier hora. Califica leads y agenda citas.</div>
         <span class="agent-new">Nuevo</span>
         <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--cyan)"></div>
       </div>
-      <div class="agent-card reveal" style="--accent:var(--pink)">
+      <div class="agent-card reveal" style="--i:5">
         <span class="agent-emoji">&#128231;</span>
         <div class="agent-name">Mail Manager</div>
-        <div class="agent-role" style="color:var(--pink)">Gestor de Email</div>
-        <div class="agent-desc">Organiza tu bandeja, responde emails seg&uacute;n tus instrucciones y prioriza lo importante.</div>
+        <div class="agent-role" style="color:var(--pink)">Email</div>
+        <div class="agent-desc">Organiza tu bandeja, responde emails y prioriza lo importante.</div>
         <span class="agent-new">Nuevo</span>
         <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--pink)"></div>
       </div>
-      <div class="agent-card reveal" style="--accent:var(--teal)">
+      <div class="agent-card reveal" style="--i:6">
         <span class="agent-emoji">&#128203;</span>
         <div class="agent-name">Invoice Pro</div>
         <div class="agent-role" style="color:var(--teal)">Facturaci&oacute;n</div>
-        <div class="agent-desc">Crea facturas profesionales, las env&iacute;a y lleva el control de cobros autom&aacute;ticamente.</div>
+        <div class="agent-desc">Crea facturas, las env&iacute;a y lleva el control de cobros autom&aacute;ticamente.</div>
         <span class="agent-new">Nuevo</span>
         <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--teal)"></div>
       </div>
-      <div class="agent-card reveal" style="--accent:var(--green)">
+      <div class="agent-card reveal" style="--i:7">
         <span class="agent-emoji">&#129421;</span>
         <div class="agent-name">Gorila</div>
-        <div class="agent-role" style="color:var(--green)">An&aacute;lisis y Reportes</div>
+        <div class="agent-role" style="color:var(--green)">Reportes</div>
         <div class="agent-desc">Recopila datos de todos los agentes y genera reportes ejecutivos completos.</div>
         <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--green)"></div>
       </div>
@@ -592,97 +829,77 @@ footer .logo-footer{height:48px;opacity:.85;margin-bottom:16px;filter:drop-shado
   </div>
 </section>
 
-<!-- SCENARIOS -->
-<section>
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-pre" style="color:var(--purple);background:rgba(168,85,247,.1)">Imagina Esto</div>
-      <h2>Escenarios que Est&aacute;n Pasando<br>Ahora Mismo</h2>
-    </div>
-    <div class="quote-grid">
-      <div class="quote-card reveal-left">
-        <p class="quote-text">Son las 3 de la ma&ntilde;ana. Un cliente potencial llama a tu cl&iacute;nica. Tu asistente IA <strong>contesta, le explica los tratamientos, califica el lead y le agenda una cita</strong> para ma&ntilde;ana a las 10. Cuando llegas a la oficina, ya tienes la cita confirmada.</p>
-        <div class="quote-author">Cl&iacute;nica Est&eacute;tica &mdash; Madrid</div>
-      </div>
-      <div class="quote-card reveal">
-        <p class="quote-text">Es lunes. Tu agente de TikTok encontr&oacute; que los <strong>tutoriales de "antes y despu&eacute;s" de 45 segundos</strong> son los que m&aacute;s viralizan en tu sector. Te da 5 ideas con hooks probados. Tu Ad Spy ya analiz&oacute; los 47 anuncios nuevos de tus competidores.</p>
-        <div class="quote-author">Ecommerce &mdash; Barcelona</div>
-      </div>
-      <div class="quote-card reveal-right">
-        <p class="quote-text">Recibes 80 emails al d&iacute;a. Tu Mail Manager <strong>los clasifica, responde los rutinarios autom&aacute;ticamente y te deja solo los 5 que realmente necesitan tu atenci&oacute;n</strong>. Has recuperado 2 horas de tu d&iacute;a. Cada d&iacute;a.</p>
-        <div class="quote-author">Consultor&iacute;a &mdash; Valencia</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT YOU'LL SEE IN THE LIVE -->
-<section>
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-pre" style="color:var(--orange);background:rgba(249,115,22,.1)">En el Directo</div>
-      <h2>Lo Que Vas a Ver<br>Con Tus Propios Ojos</h2>
-      <p>No vamos a contarte lo que hacen. Vamos a encenderlos delante de ti.</p>
-    </div>
-    <div class="agenda-grid">
-      <div class="agenda-item reveal">
-        <div class="agenda-num">01</div>
-        <h4>&#128373;&#65039; Espionaje en Directo</h4>
-        <p>Entraremos en Meta Ads y analizaremos los anuncios de competidores reales de los asistentes. Ver&aacute;s c&oacute;mo el agente los encuentra y analiza en tiempo real.</p>
-      </div>
-      <div class="agenda-item reveal">
-        <div class="agenda-num">02</div>
-        <h4>&#128200; Caza de Virales</h4>
-        <p>Buscaremos los tutoriales m&aacute;s virales en TikTok de sectores reales. El agente analizar&aacute; patrones y te dir&aacute; exactamente qu&eacute; contenido crear.</p>
-      </div>
-      <div class="agenda-item reveal">
-        <div class="agenda-num">03</div>
-        <h4>&#127760; Embudo en Directo</h4>
-        <p>Crearemos un embudo de venta completo EN VIVO. Ver&aacute;s c&oacute;mo el agente clona un template, lo personaliza y lo deja listo para captar leads.</p>
-      </div>
-      <div class="agenda-item reveal">
-        <div class="agenda-num">04</div>
-        <h4>&#128081; Orquestaci&oacute;n Total</h4>
-        <p>Le daremos una orden al Director y ver&aacute;s c&oacute;mo los 8 agentes se ponen a trabajar en paralelo. Resultado completo en minutos.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- LIVE EVENT -->
+<!-- ==================== DIRECTO: HYPE + FOMO ==================== -->
 <section class="live-section">
   <div class="container">
-    <div class="reveal">
-      <div class="live-badge">Evento en Directo</div>
-      <h2 class="glow">Martes 24 de Marzo<br>Lo Ver&aacute;s <em>Con Tus Propios Ojos</em></h2>
+    <div class="chapter reveal" style="justify-content:center;text-align:center">
+      <div class="chapter-num" style="background:var(--red);color:var(--white)">&#127909;</div>
+      <div>
+        <div class="chapter-label" style="color:var(--red)">Demostraci&oacute;n en Directo</div>
+        <div class="chapter-title" style="font-size:clamp(1.3rem,3vw,1.8rem)">Todo Esto Lo Ver&aacute;s Funcionar en Vivo</div>
+      </div>
+    </div>
+
+    <div class="reveal" style="text-align:center;margin-top:24px">
       <p style="color:var(--gray-light);max-width:640px;margin:0 auto 28px;font-size:clamp(.92rem,1.5vw,1.08rem);line-height:1.75">
-        Vamos a <strong style="color:var(--white)">encender los 8 agentes delante de ti</strong> y ver&aacute;s c&oacute;mo esp&iacute;an anuncios, encuentran virales, crean embudos, contestan llamadas, responden emails, generan facturas y reportes. <strong style="color:var(--white)">Todo en tiempo real. Todo con datos reales. Todo con negocios de los asistentes.</strong>
+        Ahora que ya sabes qu&eacute; son los agentes IA y qu&eacute; pueden hacer, <strong style="color:var(--white)">el martes 24 de marzo vamos a encenderlos delante de ti</strong>. No vamos a contarte lo que hacen. Vamos a <strong style="color:var(--gold)">demostrarlo en tiempo real</strong> con datos reales y negocios de los asistentes.
       </p>
     </div>
-    <div class="live-details reveal">
-      <div class="live-detail">&#128197; <strong>Martes 24 de Marzo</strong></div>
-      <div class="live-detail">&#128336; <strong>19:00h</strong> (Espa&ntilde;a)</div>
-      <div class="live-detail">&#127909; <strong>Online</strong></div>
-    </div>
+
     <div class="countdown reveal" id="countdown">
       <div class="cd-block"><div class="cd-num" id="cd-days">--</div><div class="cd-label">D&iacute;as</div></div>
       <div class="cd-block"><div class="cd-num" id="cd-hours">--</div><div class="cd-label">Horas</div></div>
       <div class="cd-block"><div class="cd-num" id="cd-mins">--</div><div class="cd-label">Min</div></div>
       <div class="cd-block"><div class="cd-num" id="cd-secs">--</div><div class="cd-label">Seg</div></div>
     </div>
-    <p class="reveal" style="color:var(--white);font-size:clamp(.95rem,1.5vw,1.08rem);font-weight:600;margin-top:28px">Ya est&aacute;s dentro. Solo tienes que estar el martes a las 19:00h.</p>
-    <p class="reveal" style="color:var(--gray);font-size:.82rem;margin-top:6px">Los que no est&eacute;n, no tendr&aacute;n acceso a la grabaci&oacute;n.</p>
+
+    <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:24px 0 36px" class="reveal">
+      <div style="display:flex;align-items:center;gap:6px;font-size:.9rem;color:var(--gray-light)">&#128197; <strong style="color:var(--white)">Martes 24 de Marzo</strong></div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:.9rem;color:var(--gray-light)">&#128336; <strong style="color:var(--white)">19:00h</strong> (Espa&ntilde;a)</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:.9rem;color:var(--gray-light)">&#127909; <strong style="color:var(--white)">Online</strong></div>
+    </div>
+
+    <div class="section-header reveal" style="margin-bottom:24px">
+      <h2 style="font-size:clamp(1.2rem,3vw,1.8rem)">Lo Que Ver&aacute;s en el Directo</h2>
+    </div>
+
+    <div class="agenda-grid stagger">
+      <div class="agenda-item reveal" style="--i:0">
+        <div class="agenda-num">01</div>
+        <h4>&#128373;&#65039; Espionaje en Directo</h4>
+        <p>Entraremos en Meta Ads y analizaremos los anuncios de competidores reales. Ver&aacute;s c&oacute;mo el agente los encuentra y analiza en tiempo real.</p>
+      </div>
+      <div class="agenda-item reveal" style="--i:1">
+        <div class="agenda-num">02</div>
+        <h4>&#128200; Caza de Virales</h4>
+        <p>Buscaremos los tutoriales m&aacute;s virales en TikTok de sectores reales. El agente analizar&aacute; patrones y te dir&aacute; exactamente qu&eacute; contenido crear.</p>
+      </div>
+      <div class="agenda-item reveal" style="--i:2">
+        <div class="agenda-num">03</div>
+        <h4>&#127760; Embudo en Directo</h4>
+        <p>Crearemos un embudo de venta completo EN VIVO. Ver&aacute;s c&oacute;mo el agente lo personaliza y lo deja listo para captar leads.</p>
+      </div>
+      <div class="agenda-item reveal" style="--i:3">
+        <div class="agenda-num">04</div>
+        <h4>&#128081; Orquestaci&oacute;n Total</h4>
+        <p>Le daremos una orden al Director y ver&aacute;s c&oacute;mo los 8 agentes se ponen a trabajar en paralelo. Resultado completo en minutos.</p>
+      </div>
+    </div>
+
+    <div class="fomo-banner reveal" style="margin-top:36px">
+      <p>&#128308; <span>Los que no est&eacute;n en el directo, no tendr&aacute;n acceso a la grabaci&oacute;n.</span> Ya est&aacute;s dentro. Solo tienes que estar el martes a las 19:00h.</p>
+    </div>
   </div>
 </section>
 
-<!-- SURVEY FORM -->
+<!-- ==================== SURVEY FORM ==================== -->
 <section class="survey-section">
   <div class="container">
-    <div class="survey-wrap reveal-scale">
+    <div class="survey-wrap reveal-scale glow-box">
       <h2>Una &Uacute;ltima Pregunta<br><em>Antes del Directo</em></h2>
       <p>Queremos personalizar la demostraci&oacute;n para que sea lo m&aacute;s &uacute;til posible para ti. Cu&eacute;ntanos:</p>
       <form id="surveyForm" class="survey-form" onsubmit="return false;">
-        <textarea class="survey-textarea" id="surveyResponse" placeholder="&iquest;Qu&eacute; parte te gustar&iacute;a automatizar m&aacute;s de tu negocio? &iquest;D&oacute;nde tienes el mayor problema?" maxlength="2000" required></textarea>
+        <textarea class="survey-textarea" id="surveyResponse" placeholder="&iquest;Qu&eacute; parte te gustar&iacute;a automatizar m&aacute;s de tu negocio? &iquest;D&oacute;nde tienes el mayor problema?" rows="4"></textarea>
         <div class="survey-error" id="surveyError">Ha ocurrido un error. Int&eacute;ntalo de nuevo.</div>
         <button type="button" class="survey-btn" id="surveyBtn" onclick="submitSurvey()">
           <span class="btn-text">Enviar mi Respuesta</span>
@@ -691,7 +908,7 @@ footer .logo-footer{height:48px;opacity:.85;margin-bottom:16px;filter:drop-shado
       </form>
       <div class="survey-success" id="surveySuccess">
         <span class="check-icon">&#10024;</span>
-        <h3>Gracias por tu respuesta</h3>
+        <h3>&iexcl;Gracias por tu respuesta!</h3>
         <p>Tendremos en cuenta tu caso en la demostraci&oacute;n del martes 24 de marzo. &iexcl;Nos vemos a las 19:00h!</p>
       </div>
     </div>
@@ -708,13 +925,27 @@ footer .logo-footer{height:48px;opacity:.85;margin-bottom:16px;filter:drop-shado
 <div id="particles"></div>
 
 <script>
-// Scroll reveal
-const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
-},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>observer.observe(el));
+// Reading progress bar
+window.addEventListener('scroll',()=>{
+  const bar=document.getElementById('readingProgress');
+  const scrollTop=window.scrollY;
+  const docHeight=document.documentElement.scrollHeight-window.innerHeight;
+  const progress=(scrollTop/docHeight)*100;
+  bar.style.width=Math.min(progress,100)+'%';
+},{passive:true});
 
-// Countdown - 24 marzo 2026 19:00 hora España (CET = UTC+1, but March 24 is after DST so CEST = UTC+2 → 17:00 UTC)
+// Scroll reveal with stagger support
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.reveal-rotate').forEach(el=>observer.observe(el));
+
+// Countdown - 24 marzo 2026 19:00 hora España (CEST = UTC+2 → 17:00 UTC)
 function updateCountdown(){
   const target=new Date('2026-03-24T17:00:00Z').getTime();
   const now=Date.now();
@@ -740,11 +971,11 @@ setInterval(updateCountdown,1000);
 
 // Particles
 const pc=document.getElementById('particles');
-for(let i=0;i<20;i++){
+for(let i=0;i<25;i++){
   const p=document.createElement('div');
   p.className='particle';
   p.style.left=Math.random()*100+'vw';
-  p.style.animation='float-particle '+(12+Math.random()*18)+'s '+(Math.random()*12)+'s infinite linear';
+  p.style.animation='float-particle '+(10+Math.random()*20)+'s '+(Math.random()*15)+'s infinite linear';
   pc.appendChild(p);
 }
 
@@ -755,13 +986,34 @@ window.addEventListener('scroll',()=>{
   else nav.style.background='rgba(10,15,30,.92)';
 },{passive:true});
 
-// Animate stat numbers on scroll
+// Counter animation for stat numbers
+const counterObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target;
+      const target=parseInt(el.dataset.target);
+      const suffix=el.dataset.suffix||'';
+      if(isNaN(target)){counterObserver.unobserve(el);return;}
+      let current=0;
+      const increment=Math.max(1,Math.floor(target/60));
+      const timer=setInterval(()=>{
+        current+=increment;
+        if(current>=target){current=target;clearInterval(timer);}
+        el.textContent=current.toLocaleString('es-ES')+suffix;
+      },25);
+      counterObserver.unobserve(el);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.counter').forEach(el=>counterObserver.observe(el));
+
+// Animate stat numbers on scroll (pop effect)
 const statNums=document.querySelectorAll('.stat-num,.big-num');
 const numObserver=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
       e.target.style.transition='all .6s cubic-bezier(.16,1,.3,1)';
-      e.target.style.transform='scale(1.05)';
+      e.target.style.transform='scale(1.08)';
       setTimeout(()=>{e.target.style.transform='scale(1)'},600);
       numObserver.unobserve(e.target);
     }
@@ -796,7 +1048,6 @@ async function submitSurvey(){
     return;
   }
 
-  // Show loading
   btn.classList.add('loading');
   btn.disabled=true;
   errorEl.classList.remove('show');
